@@ -68,7 +68,7 @@ The hero is a real moment: Doug at the Japan America Society podium on the field
 | Model | Seedance 2.x at 1080p, 8 to 12 s | Seedance needs Higgsfield Plus. Shot 1 (live) is a Kling 3.0 standard drone pull-back, 1108×828, 10 s, silent, reversed so the scroll flies in to Doug |
 | Identity reference | Studio headshot (`doug-photos/headshot.jpg`) on every generation | Kling takes a start frame only. Re-run on Seedance with the headshot as identity reference when Plus is active |
 | Source photos | `doug-photos/dodger-stadium-speech.jpg`, `gala-speech.jpg`, `headshot.jpg` | Uploaded to Higgsfield |
-| Delivery | MP4 in `/assets`, re-encoded for scrubbing: H.264, keyframe every frame, no audio, native width (1108 px), under 10 MB, `faststart` | Done: `assets/hero-orbit.mp4`, 7.4 MB, 241 frames. Poster is its first frame |
+| Delivery | MP4 in `/assets`, re-encoded for scrubbing: H.264, keyframe every frame, no audio, native width (1108 px), under 10 MB, `faststart` | Done: `assets/hero-orbit.mp4`, 241 frames. Re-encoded Nov 23 with a keyframe every 6 frames (3.9 MB, down from 7.4 MB, no visible change). Poster is its first frame |
 
 **Rule:** AI may move the camera around a real moment. It must not invent crowds, events, logos or people. Every scene starts from a real photo of Doug.
 
@@ -88,13 +88,14 @@ The hero is a real moment: Doug at the Japan America Society podium on the field
 2. **Animated stats strip:** four tiles count up when they scroll into view.
 3. **Mission statement:** big type, one paragraph.
 4. **Four pillars:** Fundraising · Membership growth · Governance and finance · Partnerships and government.
-5. **ICC band:** Vice Chair since 2019 (appointed 2014), with board and ED roles.
+5. **ICC band:** Vice Chair since 2019 (appointed 2014), with a list of his other board and public service (APF, Harbor Regional Center, Japan House LA, LAEDC, NAJAS).
 6. **Story:** Doug's own four-beat career arc (Anjo 1989, JASSC 1993, ED and board work since 2021, why), with his studio headshot.
 7. **Selected results:** Doug's three picks: $1.5M Japan Disaster Relief Fund, $250K Centennial gift (with the Centennial gala photo), 25% membership growth.
-8. **Testimonials:** two to three quotes. *Section built but hidden until Doug's references send quotes.*
-9. **Featured writing (phase 2):** home for LinkedIn posts or a Substack if Doug agrees.
-10. **Final CTA:** "Let's connect." with one plain line inviting boards, colleagues and partners to email, plus Email Doug and LinkedIn buttons.
-11. **Footer:** name, city, year.
+8. **Experience:** every role from his resume, most recent first (SCLB, CA-SIG, IDA, JASSC, CSULB, Anjo), plus an Education card. Added after the Nov 23 audit because boards and recruiters look for a plain chronology.
+9. **Testimonials:** two to three quotes. *Section built but hidden until Doug's references send quotes.*
+10. **Featured writing (phase 2):** home for LinkedIn posts or a Substack if Doug agrees.
+11. **Final CTA:** "Let's connect." with one plain line inviting boards, colleagues and partners to email, plus Email Doug, Copy email and LinkedIn buttons.
+12. **Footer:** name, city, email link, year.
 
 ### 8. Section notes
 
@@ -152,8 +153,9 @@ Single column under 860 px. Hero stays full-bleed; scrubbing still works on iOS 
 ### 15. Stack
 
 - One file: `index.html` (inline CSS and JS; Jared chose one file over splitting into style.css and script.js).
-- `/assets` holds media: `hero-orbit.mp4`, `hero-poster.jpg`, later scene videos.
-- CDN, pinned versions: GSAP 3.12.5 and ScrollTrigger 3.12.5 (cdnjs), Lenis 1.1.13 (unpkg).
+- `/assets` holds media, fonts and scripts.
+- Self-hosted since Nov 23 (no third-party requests): GSAP 3.12.5, ScrollTrigger 3.12.5 and Lenis 1.1.13 in `assets/js/`, Inter Tight 400/500/600 (latin woff2) in `assets/fonts/`.
+- The hero video loads after the page's load event, so the photo, text and fonts come first. Visitors with Data Saver on keep the still photo.
 - No frameworks, no build step. Vercel serves the folder as-is.
 
 ### 16. Repo layout
@@ -162,11 +164,18 @@ Single column under 860 px. Hero stays full-bleed; scrubbing still works on iOS 
 /
 ├── index.html
 ├── BUILD-PLAN.md
-├── vercel.json        (cache headers for /assets)
+├── 404.html           (branded not-found page)
+├── robots.txt, sitemap.xml
+├── favicon.ico, apple-touch-icon.png
+├── vercel.json        (cache and security headers)
 └── assets/
+    ├── js/                (gsap, ScrollTrigger, lenis)
+    ├── fonts/             (Inter Tight woff2)
+    ├── share.jpg          (1200x630 link-preview card for LinkedIn, iMessage, email)
+    ├── favicon-32.png, icon-512.png
     ├── hero-orbit.mp4
-    ├── hero-poster.jpg
-    ├── hero-end.jpg       (full-res final frame of the hero)
+    ├── hero-poster.webp   (.jpg kept as a fallback copy)
+    ├── hero-end.webp      (full-res final frame of the hero; .jpg kept)
     ├── headshot.jpg       (story section)
     ├── headshot-face.jpg  (footer signature)
     └── gala-speech.jpg    (Centennial result card)
@@ -175,11 +184,11 @@ Single column under 860 px. Hero stays full-bleed; scrubbing still works on iOS 
 ### 17. Video encoding
 
 ```
-ffmpeg -i source.mp4 -an -vf "scale=1280:-2,fps=24" -c:v libx264 -preset slow \
-  -crf 24 -g 1 -pix_fmt yuv420p -movflags +faststart assets/hero-orbit.mp4
+ffmpeg -i source.mp4 -an -c:v libx264 -preset veryslow -tune film \
+  -crf 25 -g 6 -bf 0 -pix_fmt yuv420p -movflags +faststart assets/hero-orbit.mp4
 ```
 
-`-g 1` makes every frame a keyframe so scrubbing is smooth in every browser.
+A keyframe every 6 frames (a quarter second) with no B-frames keeps scrubbing smooth while roughly halving the file versus every-frame keyframes.
 
 ### 18. Deploy
 
@@ -187,7 +196,7 @@ ffmpeg -i source.mp4 -an -vf "scale=1280:-2,fps=24" -c:v libx264 -preset slow \
 
 1. Edit files and push to `main`.
 2. Vercel redeploys production automatically on every push to `main`.
-3. Media lives in `/assets` and is served by Vercel directly (cached for an hour, so a replaced video shows up within the hour).
+3. Media lives in `/assets` and is served by Vercel directly, cached for 7 days. **When replacing an asset, give it a new filename** (for example `headshot-2.jpg`) and update the reference, or returning visitors may see the old file for up to a week.
 4. `.vercelignore` keeps this build plan and the README off the public site.
 
 ### 19. Domain (Cloudflare)
@@ -195,6 +204,7 @@ ffmpeg -i source.mp4 -an -vf "scale=1280:-2,fps=24" -c:v libx264 -preset slow \
 1. Buy the domain in Cloudflare Registrar under Doug's name and email.
 2. In Vercel → Project → Settings → Domains, add `domain.com` and `www.domain.com`.
 3. In Cloudflare DNS, add the records Vercel shows (an A record for the root, a CNAME for `www`) and set each to **DNS only** (grey cloud), so Cloudflare's proxy doesn't conflict with Vercel's SSL.
+4. Then swap `https://doug-erber-site.vercel.app` for the new domain in `index.html` (canonical, og:url, og:image, JSON-LD), `robots.txt` and `sitemap.xml`.
 
 ### 20. Open items
 
@@ -205,3 +215,6 @@ ffmpeg -i source.mp4 -an -vf "scale=1280:-2,fps=24" -c:v libx264 -preset slow \
 - [ ] Doug's in-person notes on anything to change or leave off
 - [ ] Higgsfield Plus decision: re-render the hero on Seedance 1080p with the headshot as identity reference, then scenes 2 and 3
 - [ ] Featured writing section once the content plan is agreed
+- [ ] Confirm Doug's availability line. He wrote "Open to considering nonprofit board service opportunities", but the site's main purpose is an ED or senior staff role
+- [ ] Optional: a professional email on the new domain (for example doug@dougerber.com) to replace hotmail on the site
+- [ ] Optional: Vercel Web Analytics, to see whether boards and recruiters are visiting
