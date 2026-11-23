@@ -21,21 +21,24 @@ Version 1 · November 22, 2026 · Prepared by Jared Tarabocchia, built with Clau
 
 ### 2. Core positioning
 
-**One line:** Doug runs the parts of a nonprofit that keep it standing: the donors, the members, the board and the paperwork.
+**One line (Doug's own, November 2026):** "For more than 30 years, I've helped nonprofit organizations thrive through effective fundraising, donor and member relations, board engagement, strategic leadership, and sound financial and operational management."
 
-**Why it works for a board:** boards hiring an ED fear three things: money drying up, a board that drifts, and compliance trouble. Doug's record answers all three with numbers, plus a statewide credential (ICC Vice-Chair since 2014, governor appointed) that a search committee can verify.
+**Why it works for a board:** boards hiring an ED fear three things: money drying up, a board that drifts, and compliance trouble. Doug's record answers all three with numbers, plus a statewide credential (appointed to the ICC by Governor Jerry Brown in 2014, elected Vice Chair in 2019) that a search committee can verify.
 
-**Proof points (from the resume, no invention):**
-- $3M+ raised through JASSC galas and golf tournaments
-- $1.5M Japan relief and recovery fund after the 2011 earthquake and tsunami
+**Proof points (confirmed by Doug in the questions doc, November 2026):**
+- $3M+ raised through JASSC fundraising galas and golf tournaments
+- $1.5M relief and recovery fund after Japan's 2011 earthquake, tsunami and nuclear disaster
 - 90% member renewal rate against a typical 80% goal
 - 14 years running a 100% board-giving campaign
-- $250K centennial gift from one family
-- $130K unrestricted grants for IDA in two years, more than its annual net revenue
-- First-ever executive director, twice
-- Vice-Chair, California State Interagency Coordinating Council on Early Intervention, 2014 to today
+- $250,000 gift from one family for the JASSC Centennial Celebration
+- $130,000 in unrestricted donations and grants for IDA over two years, more than its annual net revenue
+- 25% membership growth and 90% renewals, backed by a $150,000 three-year capacity grant (Japan Foundation CGP)
+- Largest annual budget: $623,000 at JASSC (2010)
+- First-ever executive director, twice: IDA (2021 to 2024) and Sister Cities of Long Beach (2025 to 2026)
+- California State Interagency Coordinating Council on Early Intervention: appointed 2014, Vice Chair since 2019
+- Board President, Autism Partnership Foundation, 2012 to present
 
-**Mission line:** *Draft, to be confirmed by Doug:* "Every community organization deserves a leader who keeps the lights on and the mission moving."
+**Availability line (Doug's words):** "Open to considering nonprofit board service opportunities aligned with my experience and interests."
 
 ### 3. Brand personality
 
@@ -84,11 +87,11 @@ The hero is a real moment: Doug at the Japan America Society podium on the field
 1. **Hero:** full-bleed night stage with the orbit video, name, one-line title, organization marquee.
 2. **Animated stats strip:** four tiles count up when they scroll into view.
 3. **Mission statement:** big type, one paragraph.
-4. **Three pillars** (currently four services; keep four until Doug picks): Fundraising · Membership growth · Governance and compliance · Partnerships and government.
-5. **ICC band:** the 2014–today credential, with board roles.
-6. **Story:** short career arc in Doug's words. *Draft from the resume; Doug to edit.*
-7. **Selected results:** three case cards ($1.5M, $250K, $130K).
-8. **Testimonials:** two quotes from coworkers. *Placeholder until Jared collects them.*
+4. **Four pillars:** Fundraising · Membership growth · Governance and finance · Partnerships and government.
+5. **ICC band:** Vice Chair since 2019 (appointed 2014), with board and ED roles.
+6. **Story:** Doug's own four-beat career arc (Anjo 1989, JASSC 1993, ED and board work since 2021, why), with his studio headshot.
+7. **Selected results:** Doug's three picks: $1.5M Japan Disaster Relief Fund, $250K Centennial gift (with the Centennial gala photo), 25% membership growth.
+8. **Testimonials:** two to three quotes. *Section built but hidden until Doug's references send quotes.*
 9. **Featured writing (phase 2):** home for LinkedIn posts or a Substack if Doug agrees.
 10. **Final CTA:** "Hiring your next executive director?" with Email Doug and LinkedIn.
 11. **Footer:** name, city, year.
@@ -98,7 +101,7 @@ The hero is a real moment: Doug at the Japan America Society podium on the field
 - **Hero:** video pinned while the visitor scrolls one screen; the camera orbit plays forward with the scroll and back when scrolling up. Text stays readable over a dark gradient.
 - **Stats:** numbers count from 0 over about 1.4 s, ease-out, once. Prefix and suffix (`$`, `M+`, `%`, ` yrs`) stay fixed while the digits move.
 - **Mission:** one sentence; the second half is greyed to create rhythm.
-- **Story:** four beats, one line each, no invented detail.
+- **Story:** four beats in Doug's words; the left column (title and headshot) stays pinned while the beats scroll.
 - **Final CTA:** the email button is the primary action on the page and appears in the nav as well.
 
 ---
@@ -107,14 +110,20 @@ The hero is a real moment: Doug at the Japan America Society podium on the field
 
 ### 9. Color
 
+Forest green (Jared, November 23, 2026), replacing the original purple.
+
 | Token | Hex | Use |
 |---|---|---|
-| `--a-bg` | `#F4F4F6` | Page |
-| `--a-card` | `#E6E7EC` | Cards |
-| `--a-ink` | `#141519` | Text |
-| `--a-mute` | `#6E7079` | Secondary text |
-| `--a-accent` | `#4A4DF5` | Accent, buttons, tags |
-| `--a-night` | `#07081A` | Hero, ICC seal, footer |
+| `--a-bg` | `#F4F5F2` | Page |
+| `--a-card` | `#E6E9E3` | Cards |
+| `--a-ink` | `#131714` | Text |
+| `--a-mute` | `#6A7069` | Secondary text |
+| `--a-accent` | `#2D6A4F` | Accent, buttons, tags, stat bars |
+| `--a-accent-hi` | `#3E8E68` | Hover and active states |
+| `--a-accent-soft` | `#95D5B2` | Accent on dark backgrounds |
+| `--a-night` | `#06140D` | Hero, ICC seal, footer |
+
+Glows on dark panels use `#1B5E3B`, `#2D8A57` and `#52B788`.
 
 ### 10. Typography
 
@@ -122,11 +131,11 @@ Inter Tight (Google Fonts), weights 400/500/600. Headlines 500 with tight tracki
 
 ### 11. Animation direction
 
-Calm and expensive: long ease-out curves, nothing bouncy. Section text rises 24 px and fades in. Marquee drifts at 40 s per loop. Glow blobs drift slowly. A faint film grain sits over the whole page at about 5% opacity.
+Calm and expensive: long ease-out curves, nothing bouncy. Section text rises 24 px and fades in. Section headings rise in word by word. The headshot opens from a smaller frame and drifts slightly with the scroll; the gala photo settles in the same way. A green rule draws under each story beat as it arrives. Marquee drifts at 40 s per loop and pauses on hover. Glow blobs drift slowly. A faint film grain sits over the whole page at about 5% opacity.
 
 ### 12. Interaction design
 
-Pill buttons with an accent circle arrow. Sticky left columns on desktop. Case index links jump to their cards. All motion respects `prefers-reduced-motion` (no smooth scroll, no scrubbing, numbers shown final).
+Pill buttons with an accent circle arrow. Sticky left columns on desktop. A floating pill nav (Work, ICC, Story, Results, Contact) slides in after the hero and highlights the section you're in. Case index links jump to their cards and highlight while their card is on screen. Cards, stat tiles and role rows lift or brighten on hover; the green glow on the result cards follows the pointer. All motion respects `prefers-reduced-motion` (no smooth scroll, no scrubbing, numbers shown final).
 
 ### 13. Scroll behavior
 
@@ -156,7 +165,10 @@ Single column under 860 px. Hero stays full-bleed; scrubbing still works on iOS 
 ├── vercel.json        (cache headers for /assets)
 └── assets/
     ├── hero-orbit.mp4
-    └── hero-poster.jpg
+    ├── hero-poster.jpg
+    ├── headshot.jpg       (story section)
+    ├── headshot-face.jpg  (footer signature)
+    └── gala-speech.jpg    (Centennial result card)
 ```
 
 ### 17. Video encoding
@@ -185,9 +197,10 @@ ffmpeg -i source.mp4 -an -vf "scale=1280:-2,fps=24" -c:v libx264 -preset slow \
 
 ### 20. Open items
 
-- [ ] Doug confirms the mission line and edits the Story section
-- [ ] Two coworker testimonials
-- [ ] Domain name chosen and bought; email moved to the domain
-- [ ] Resume PDF link
+- [x] Doug confirms the mission line and edits the Story section
+- [ ] Two or three testimonials (names, titles, quotes, permission)
+- [ ] Buy dougerber.com on Cloudflare in Doug's name (no backup picked yet). Email stays dougerber@hotmail.com; no phone number on the site
+- [ ] Gated resume download: Doug wants it only behind a full contact form that requires a working business email domain. Needs his resume PDF and a form backend
+- [ ] Doug's in-person notes on anything to change or leave off
 - [ ] Higgsfield Plus decision: re-render the hero on Seedance 1080p with the headshot as identity reference, then scenes 2 and 3
 - [ ] Featured writing section once the content plan is agreed

@@ -4,21 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Douglas Erber · Nonprofit Executive Director</title>
-<meta name="description" content="Douglas Erber is a nonprofit executive director in Long Beach, California, and Vice-Chair of California's council on early intervention since 2014.">
+<meta name="description" content="Douglas Erber is a nonprofit executive director in Long Beach, California, with more than 30 years in fundraising, donor and member relations, board engagement and operations. Vice Chair of California's council on early intervention.">
 <meta property="og:title" content="Douglas Erber · Nonprofit Executive Director">
-<meta property="og:description" content="Fundraising, membership growth, governance and partnerships. ICC Vice-Chair since 2014.">
+<meta property="og:description" content="Fundraising, donor and member relations, board engagement and operations. ICC Vice Chair since 2019.">
 <meta property="og:image" content="assets/hero-poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap">
 <style>
 :root {
-  --a-bg: #F4F4F6;
-  --a-card: #E6E7EC;
-  --a-ink: #141519;
-  --a-mute: #6E7079;
-  --a-accent: #4A4DF5;
-  --a-night: #07081A;
+  --a-bg: #F4F5F2;
+  --a-card: #E6E9E3;
+  --a-ink: #131714;
+  --a-mute: #6A7069;
+  --a-accent: #2D6A4F;
+  --a-accent-hi: #3E8E68;
+  --a-accent-soft: #95D5B2;
+  --a-night: #06140D;
+  --a-line: #D2D7CF;
+  --ease-out: cubic-bezier(.2,.7,.2,1);
   --font-a: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
   --gut-l: max(clamp(16px, 4vw, 56px), env(safe-area-inset-left, 0px));
   --gut-r: max(clamp(16px, 4vw, 56px), env(safe-area-inset-right, 0px));
@@ -45,26 +49,26 @@ img, video { max-width: 100%; display: block; }
 /* Hero */
 .a-hero-shell { padding: 8px; }
 .a-hero { position: relative; overflow: hidden; border-radius: 10px; background: var(--a-night); color: #fff; height: calc(100svh - 16px); min-height: 520px; display: flex; flex-direction: column; justify-content: flex-end; }
-.a-nav { position: absolute; top: calc(18px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%); z-index: 5; display: flex; align-items: center; gap: 28px; padding: 8px 8px 8px 16px; border-radius: 999px; background: rgba(10,11,30,.55); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); font-size: 14px; white-space: nowrap; }
+.a-nav { position: absolute; top: calc(18px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%); z-index: 5; display: flex; align-items: center; gap: 28px; padding: 8px 8px 8px 16px; border-radius: 999px; background: rgba(6,20,13,.55); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); font-size: 14px; white-space: nowrap; }
 .a-nav .mark { display: flex; align-items: center; gap: 8px; font-weight: 500; }
-.a-nav .mark i { width: 22px; height: 12px; border: 2px solid #8C8FFF; border-radius: 8px; display: inline-block; }
+.a-nav .mark i { width: 22px; height: 12px; border: 2px solid var(--a-accent-soft); border-radius: 8px; display: inline-block; }
 .a-nav a.menu { background: rgba(255,255,255,.14); padding: 6px 14px; border-radius: 999px; font-size: 13px; text-decoration: none; }
 .a-stage-wrap { position: absolute; inset: 0; overflow: hidden; }
 .a-stage { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 20%; }
 .a-stage-img { transform-origin: 50% 30%; will-change: transform; }
 .a-video { opacity: 0; transition: opacity .6s ease; }
 .a-video.ready { opacity: 1; }
-.a-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,8,26,.55) 0%, rgba(7,8,26,.1) 30%, rgba(7,8,26,.7) 75%, #07081A 100%); }
-.a-glow { position: absolute; inset: -20%; filter: blur(60px); opacity: .4; mix-blend-mode: screen; }
+.a-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,20,13,.55) 0%, rgba(6,20,13,.1) 30%, rgba(6,20,13,.7) 75%, #06140D 100%); }
+.a-glow { position: absolute; inset: -20%; filter: blur(60px); opacity: .32; mix-blend-mode: screen; }
 .a-glow b { position: absolute; border-radius: 50%; display: block; }
-.a-glow .g1 { width: 70%; height: 80%; left: -5%; top: 0%; background: radial-gradient(closest-side, #2B22C9, transparent); }
-.a-glow .g2 { width: 55%; height: 18%; left: 5%; top: 55%; background: radial-gradient(closest-side, #6E6BFF, transparent); transform: rotate(-12deg); animation: drift 14s ease-in-out infinite alternate; }
-.a-glow .g3 { width: 40%; height: 40%; right: -8%; top: -12%; background: radial-gradient(closest-side, #3A3FD8, transparent); opacity: .7; animation: drift 18s ease-in-out infinite alternate-reverse; }
+.a-glow .g1 { width: 70%; height: 80%; left: -5%; top: 0%; background: radial-gradient(closest-side, #1B5E3B, transparent); }
+.a-glow .g2 { width: 55%; height: 18%; left: 5%; top: 55%; background: radial-gradient(closest-side, #52B788, transparent); transform: rotate(-12deg); animation: drift 14s ease-in-out infinite alternate; }
+.a-glow .g3 { width: 40%; height: 40%; right: -8%; top: -12%; background: radial-gradient(closest-side, #2D6A4F, transparent); opacity: .7; animation: drift 18s ease-in-out infinite alternate-reverse; }
 @keyframes drift { from { translate: 0 0; } to { translate: 4% -3%; } }
-.a-scrim { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: radial-gradient(90% 72% at 0% 100%, rgba(7,8,26,.86) 0%, rgba(7,8,26,.62) 42%, rgba(7,8,26,0) 80%); }
+.a-scrim { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: radial-gradient(90% 72% at 0% 100%, rgba(6,20,13,.86) 0%, rgba(6,20,13,.62) 42%, rgba(6,20,13,0) 80%); }
 .a-hero-text { position: relative; z-index: 3; padding: 0 clamp(20px, 4vw, 48px) 28px; display: grid; gap: 14px; max-width: 900px; }
 .a-hero-text .eyebrow { font-size: 13px; letter-spacing: .04em; color: rgba(255,255,255,.75); }
-.a-hero-text h1 { font-size: clamp(48px, 9vw, 132px); line-height: .92; letter-spacing: -.045em; font-weight: 500; text-shadow: 0 2px 28px rgba(7,8,26,.35); }
+.a-hero-text h1 { font-size: clamp(48px, 9vw, 132px); line-height: .92; letter-spacing: -.045em; font-weight: 500; text-shadow: 0 2px 28px rgba(6,20,13,.35); }
 .a-hero-text h1 .line { display: block; overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em; }
 .a-hero-text h1 .line > span { display: block; }
 .a-scrollhint { position: absolute; right: clamp(20px, 4vw, 48px); bottom: 90px; z-index: 3; font-size: 12px; color: rgba(255,255,255,.6); letter-spacing: .08em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
@@ -79,8 +83,8 @@ img, video { max-width: 100%; display: block; }
 /* Statement */
 .a-statement { padding-block: clamp(72px, 11vw, 150px); }
 .a-statement .inner { max-width: 880px; margin-left: auto; margin-right: clamp(0px, 6vw, 120px); display: grid; gap: 20px; }
-.a-statement p.big { font-size: clamp(28px, 4.2vw, 56px); line-height: 1.05; letter-spacing: -.03em; font-weight: 500; text-indent: 2.2em; }
-.a-statement p.big .w { color: #B4B6BF; transition: color .3s; }
+.a-statement p.big { font-size: clamp(26px, 3.6vw, 50px); line-height: 1.05; letter-spacing: -.03em; font-weight: 500; text-indent: 2.2em; }
+.a-statement p.big .w { color: #B5BAB3; transition: color .3s; }
 .a-statement p.big .w.on { color: var(--a-ink); }
 .a-statement p.sub { color: var(--a-mute); font-size: 16px; }
 
@@ -108,21 +112,21 @@ img, video { max-width: 100%; display: block; }
 .a-card { background: var(--a-card); border-radius: 8px; padding: 22px 24px 24px; display: grid; gap: 56px; }
 .a-card .num { color: var(--a-accent); font-size: 12px; font-variant-numeric: tabular-nums; }
 .a-card h3 { font-size: clamp(22px, 2.2vw, 28px); letter-spacing: -.02em; }
-.a-card p { color: #4C4E57; line-height: 1.5; font-size: 15px; max-width: 54ch; }
+.a-card p { color: #4B514B; line-height: 1.5; font-size: 15px; max-width: 54ch; }
 @media (max-width: 860px) { .a-services { grid-template-columns: 1fr; } .a-services .left { position: static; } .a-card { gap: 28px; } }
 
 /* ICC */
-.a-icc-band { background: #E1E2E8; }
+.a-icc-band { background: #E1E5DE; }
 .a-icc { padding-block: clamp(80px, 10vw, 130px); display: grid; grid-template-columns: minmax(0,5fr) minmax(0,6fr); gap: clamp(32px, 7vw, 120px); align-items: start; }
 .a-icc .seal { background: var(--a-night); color: #fff; border-radius: 10px; padding: clamp(24px, 3vw, 36px); position: relative; overflow: hidden; display: grid; gap: 80px; min-height: 360px; align-content: space-between; }
-.a-icc .seal::before { content: ""; position: absolute; width: 140%; height: 60%; left: -20%; bottom: -30%; background: radial-gradient(closest-side, #4B49F0, transparent); filter: blur(40px); }
+.a-icc .seal::before { content: ""; position: absolute; width: 140%; height: 60%; left: -20%; bottom: -30%; background: radial-gradient(closest-side, #2D8A57, transparent); filter: blur(40px); }
 .a-icc .seal > * { position: relative; }
 .a-icc .seal .yr { font-size: clamp(64px, 9vw, 120px); letter-spacing: -.05em; line-height: .9; }
 .a-icc .seal small { color: rgba(255,255,255,.65); font-size: 13px; display: block; margin-top: 10px; }
 .a-icc .txt { display: grid; gap: 20px; }
-.a-icc .txt > p { color: #4C4E57; font-size: 16px; line-height: 1.55; max-width: 58ch; }
-.a-roles { display: grid; gap: 1px; background: #C9CAD2; border-radius: 8px; overflow: hidden; margin-top: 8px; }
-.a-roles div { background: #EEEFF3; padding: 14px 16px; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 12px; font-size: 15px; }
+.a-icc .txt > p { color: #4B514B; font-size: 16px; line-height: 1.55; max-width: 58ch; }
+.a-roles { display: grid; gap: 1px; background: #C8CEC5; border-radius: 8px; overflow: hidden; margin-top: 8px; }
+.a-roles div { background: #EEF0EB; padding: 14px 16px; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 12px; font-size: 15px; }
 .a-roles span { color: var(--a-mute); font-variant-numeric: tabular-nums; white-space: nowrap; }
 @media (max-width: 860px) { .a-icc { grid-template-columns: 1fr; } .a-icc .seal { min-height: 0; gap: 40px; } }
 
@@ -130,8 +134,8 @@ img, video { max-width: 100%; display: block; }
 .a-story { padding-block: clamp(80px, 10vw, 140px); display: grid; grid-template-columns: minmax(0,5fr) minmax(0,6fr); gap: clamp(32px, 7vw, 120px); }
 .a-story .left { display: grid; gap: 18px; align-content: start; }
 .a-story .left p { color: var(--a-mute); font-size: 16px; line-height: 1.5; }
-.a-beats { display: grid; gap: 0; border-top: 1px solid #D3D4DB; }
-.a-beat { display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 20px; padding: 22px 0; border-bottom: 1px solid #D3D4DB; }
+.a-beats { display: grid; gap: 0; border-top: 1px solid var(--a-line); }
+.a-beat { display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--a-line); }
 .a-beat span { color: var(--a-accent); font-size: 13px; font-variant-numeric: tabular-nums; padding-top: 4px; }
 .a-beat p { font-size: clamp(18px, 1.8vw, 22px); line-height: 1.35; letter-spacing: -.01em; }
 @media (max-width: 860px) { .a-story { grid-template-columns: 1fr; } .a-beat { grid-template-columns: 1fr; gap: 6px; } }
@@ -142,31 +146,32 @@ img, video { max-width: 100%; display: block; }
 .a-cases .left > p { color: var(--a-mute); font-size: 16px; line-height: 1.5; }
 .a-index { display: grid; gap: 6px; margin-top: 10px; }
 .a-index a { display: grid; grid-template-columns: 56px minmax(0,1fr); gap: 8px; text-decoration: none; }
-.a-index .thumb { border-radius: 6px; background: linear-gradient(135deg, #2B22C9, #07081A); color: #fff; font-size: 12px; display: grid; place-items: center; font-weight: 600; }
+.a-index .thumb { border-radius: 6px; background: linear-gradient(135deg, var(--a-accent), #06140D); color: #fff; font-size: 12px; display: grid; place-items: center; font-weight: 600; }
 .a-index .meta { background: var(--a-card); border-radius: 6px; padding: 9px 12px; }
 .a-index .meta small { color: var(--a-accent); font-size: 11px; display: block; }
 .a-index .meta b { font-weight: 500; font-size: 14px; }
 .a-case { background: var(--a-card); border-radius: 10px; overflow: hidden; scroll-margin-top: 24px; }
 .a-case .vis { aspect-ratio: 16/9; background: var(--a-night); position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: clamp(20px, 3vw, 32px); color: #fff; }
-.a-case .vis::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 70% at var(--x, 30%) var(--y, 80%), #4B49F0, transparent 70%); opacity: .9; }
+.a-case .vis::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 70% at var(--x, 30%) var(--y, 80%), #2D8A57, transparent 70%); opacity: .9; }
 .a-case .vis span { position: relative; font-size: clamp(56px, 9vw, 120px); letter-spacing: -.05em; line-height: .9; font-variant-numeric: tabular-nums; }
 .a-case .body { padding: 18px 20px 22px; display: grid; gap: 6px; }
 .a-case .body small { color: var(--a-accent); font-size: 12px; }
 .a-case .body h3 { font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -.02em; }
-.a-case .body p { color: #4C4E57; font-size: 15px; line-height: 1.5; max-width: 58ch; }
+.a-case .body p { color: #4B514B; font-size: 15px; line-height: 1.5; max-width: 58ch; }
 .a-case-list { display: grid; gap: 14px; }
 @media (max-width: 860px) { .a-cases { grid-template-columns: 1fr; } .a-cases .left { position: static; } }
 
 /* Quotes */
 .a-quotes { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; padding-bottom: clamp(80px, 10vw, 140px); }
 .a-quote { background: #fff; border-radius: 10px; padding: clamp(22px, 3vw, 36px); display: grid; gap: 40px; color: var(--a-mute); margin: 0; }
-.a-quote p { font-size: clamp(20px, 2vw, 26px); line-height: 1.25; letter-spacing: -.02em; color: #A4A6AF; }
+.a-quote p { font-size: clamp(20px, 2vw, 26px); line-height: 1.25; letter-spacing: -.02em; color: #A3A9A2; }
 @media (max-width: 760px) { .a-quotes { grid-template-columns: 1fr; } }
+.a-quotes[hidden] { display: none; }
 
 /* Footer CTA */
 .a-footer-shell { padding: 0 8px 8px; }
 .a-footer { background: var(--a-night); color: #fff; border-radius: 10px; position: relative; overflow: hidden; padding-block: clamp(64px, 9vw, 120px) 32px; }
-.a-footer::before { content: ""; position: absolute; width: 90%; height: 90%; right: -25%; top: -30%; background: radial-gradient(closest-side, #3A36E0, transparent); filter: blur(50px); }
+.a-footer::before { content: ""; position: absolute; width: 90%; height: 90%; right: -25%; top: -30%; background: radial-gradient(closest-side, #23794A, transparent); filter: blur(50px); }
 .a-footer .wrap { position: relative; display: grid; gap: 48px; }
 .a-footer h2 { font-size: clamp(44px, 8vw, 116px); line-height: .94; letter-spacing: -.045em; max-width: 12ch; }
 .a-footer .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
@@ -175,18 +180,83 @@ img, video { max-width: 100%; display: block; }
 .a-footer .btn-a.ghost i { background: rgba(255,255,255,.12); }
 .a-footer .fine { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(255,255,255,.12); padding-top: 20px; color: rgba(255,255,255,.55); font-size: 13px; }
 
+/* Floating section nav (slides in after the hero) */
+.a-mininav { position: fixed; top: calc(12px + env(safe-area-inset-top, 0px)); left: 50%; z-index: 50; transform: translate(-50%, -160%); transition: transform .6s var(--ease-out); display: flex; align-items: center; gap: 22px; padding: 6px 6px 6px 14px; border-radius: 999px; background: rgba(6,20,13,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); color: #fff; font-size: 13px; white-space: nowrap; box-shadow: 0 12px 30px -16px rgba(6,20,13,.6); }
+.a-mininav.show { transform: translate(-50%, 0); }
+.a-mininav a { text-decoration: none; }
+.a-mininav .mark { display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 14px; }
+.a-mininav .mark i { width: 20px; height: 11px; border: 2px solid var(--a-accent-soft); border-radius: 8px; display: inline-block; }
+.a-mininav .links { display: flex; gap: 18px; }
+.a-mininav .links a { color: rgba(255,255,255,.7); transition: color .25s; }
+.a-mininav .links a:hover, .a-mininav .links a.on { color: #fff; }
+.a-mininav .menu { background: var(--a-accent); padding: 6px 14px; border-radius: 999px; transition: background .25s; }
+.a-mininav .menu:hover { background: var(--a-accent-hi); }
+@media (max-width: 680px) { .a-mininav .links { display: none; } }
+main section[id], #contact { scroll-margin-top: 80px; }
+
+/* Story portrait */
+.a-story .left { position: sticky; top: 88px; align-self: start; }
+.a-portrait { position: relative; margin: 10px 0 0; border-radius: 10px; overflow: hidden; aspect-ratio: 4 / 5; max-width: 380px; background: var(--a-card); }
+.a-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; transform: scale(1.12); }
+@media (max-width: 860px) { .a-story .left { position: static; } .a-portrait { max-width: 320px; } }
+
+/* Photo case card */
+.a-case .vis.photo { aspect-ratio: 1 / 1; }
+.a-case .vis.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 32%; z-index: 0; transform: scale(1.1); transition: scale 1.2s var(--ease-out); }
+.a-case .vis.photo::before { z-index: 1; opacity: 1; background: linear-gradient(180deg, rgba(6,20,13,0) 45%, rgba(6,20,13,.88) 100%); }
+.a-case .vis span { z-index: 2; }
+.a-case:hover .vis.photo img { scale: 1.04; }
+
+/* Hover states */
+.a-card { transition: background .35s ease, translate .35s var(--ease-out); }
+.a-card:hover { background: #fff; translate: 0 -3px; }
+.a-stat { transition: translate .35s var(--ease-out), box-shadow .35s ease; }
+.a-stat:hover { translate: 0 -3px; box-shadow: 0 14px 30px -20px rgba(6,20,13,.45); }
+.a-roles div { transition: background .25s ease; }
+.a-roles div:hover { background: #fff; }
+.a-index .meta, .a-index .thumb { transition: background .3s ease, translate .35s var(--ease-out); }
+.a-index a:hover .meta, .a-index a.on .meta { background: #fff; }
+.a-index a.on .meta { translate: 6px 0; }
+.a-index a.on .thumb { background: linear-gradient(135deg, var(--a-accent-hi), #06140D); }
+.a-case { transition: translate .4s var(--ease-out); }
+.a-case:hover { translate: 0 -3px; }
+.a-marquee li { transition: color .3s ease; }
+.a-marquee:hover ul { animation-play-state: paused; }
+.a-marquee li:hover { color: #fff; }
+
+/* Story beats: a green rule draws under each one as you reach it */
+.a-beat { position: relative; }
+.a-beat::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: var(--a-accent); transform: scaleX(0); transform-origin: left; transition: transform 1.4s var(--ease-out) .15s; }
+.a-beat.in::after { transform: scaleX(1); }
+
+/* Headings that rise in word by word */
+.split .wd { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .1em; margin-bottom: -.1em; }
+.split .wd > span { display: inline-block; }
+
+/* Footer signature */
+.a-footer .who { display: flex; align-items: center; gap: 14px; font-size: 15px; }
+.a-footer .who img { width: 56px; height: 56px; border-radius: 50%; border: 2px solid rgba(255,255,255,.25); }
+.a-footer .who small { display: block; color: rgba(255,255,255,.6); font-size: 13px; margin-top: 2px; }
+
 /* Reveal (only when JS + motion are on) */
 .js .rv { opacity: 0; transform: translateY(24px); }
 
 @media (prefers-reduced-motion: reduce) {
   .a-glow b, .a-marquee ul, .grain, .a-scrollhint::after { animation: none !important; }
   .js .rv { opacity: 1; transform: none; }
+  .a-mininav, .a-beat::after, .a-card, .a-stat, .a-case, .a-case .vis.photo img { transition: none; }
 }
 </style>
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
+
+<nav class="a-mininav" id="mininav" aria-label="Sections">
+  <a class="mark" href="#top"><i></i>Douglas Erber</a>
+  <span class="links"><a href="#work">Work</a><a href="#icc">ICC</a><a href="#story">Story</a><a href="#results">Results</a></span>
+  <a class="menu" href="#contact">Contact</a>
+</nav>
 
 <main>
   <div class="a-hero-shell" id="top">
@@ -205,7 +275,7 @@ img, video { max-width: 100%; display: block; }
       <div class="a-glow" aria-hidden="true"><b class="g1"></b><b class="g2"></b><b class="g3"></b></div>
       <div class="a-scrim" aria-hidden="true"></div>
       <div class="a-hero-text">
-        <span class="eyebrow">Nonprofit executive director · ICC Vice-Chair since 2014 · Long Beach, California</span>
+        <span class="eyebrow">Nonprofit executive director · ICC Vice Chair · Long Beach, California</span>
         <h1><span class="line"><span>Douglas</span></span><span class="line"><span>Erber</span></span></h1>
       </div>
       <div class="a-scrollhint" aria-hidden="true">Scroll</div>
@@ -220,15 +290,15 @@ img, video { max-width: 100%; display: block; }
 
   <section class="wrap a-statement" aria-label="Mission">
     <div class="inner">
-      <p class="big" id="mission">For more than 30 years I've run the parts of a nonprofit that keep it standing: the donors, the members, the board and the paperwork.</p>
-      <p class="sub rv">Executive director and senior nonprofit leader, available to boards in Los Angeles and Long Beach.</p>
+      <p class="big" id="mission">For more than 30 years, I’ve helped nonprofit organizations thrive through effective fundraising, donor and member relations, board engagement, strategic leadership, and sound financial and operational management.</p>
+      <p class="sub rv">Executive director and senior nonprofit leader in Los Angeles and Long Beach. Open to considering nonprofit board service opportunities aligned with my experience and interests.</p>
     </div>
   </section>
 
   <section class="wrap" aria-label="Results at a glance">
     <div class="a-stats" id="stats">
-      <div class="a-stat"><span class="n" data-to="3" data-pre="$" data-suf="M+">$3M+</span><span class="l">Raised through annual galas and golf tournaments at JASSC</span></div>
-      <div class="a-stat"><span class="n" data-to="1.5" data-dec="1" data-pre="$" data-suf="M">$1.5M</span><span class="l">Relief and recovery fund built after the 2011 Japan earthquake and tsunami</span></div>
+      <div class="a-stat"><span class="n" data-to="3" data-pre="$" data-suf="M+">$3M+</span><span class="l">Raised through JASSC fundraising galas and golf tournaments</span></div>
+      <div class="a-stat"><span class="n" data-to="1.5" data-dec="1" data-pre="$" data-suf="M">$1.5M</span><span class="l">Relief and recovery fund after Japan’s 2011 earthquake, tsunami and nuclear disaster</span></div>
       <div class="a-stat"><span class="n" data-to="90" data-suf="%">90%</span><span class="l">Member renewal rate, against a typical goal of 80%</span></div>
       <div class="a-stat"><span class="n" data-to="14" data-suf=" yrs">14 yrs</span><span class="l">Running a 100% board giving campaign every year</span></div>
     </div>
@@ -237,33 +307,34 @@ img, video { max-width: 100%; display: block; }
   <section class="wrap a-services" id="work">
     <div class="left">
       <span class="tag">What boards bring me in for</span>
-      <h2>Money in, members up, house in order.</h2>
+      <h2 class="split">Money in, members up, house in order.</h2>
       <p>I've been the first-ever executive director twice. I know what a board needs from its ED in year one, and what it takes to leave an organization stronger than I found it.</p>
       <a class="btn-a" href="mailto:dougerber@hotmail.com?subject=Executive%20director%20conversation"><i>→</i>Email Doug</a>
     </div>
     <div class="a-cards">
-      <article class="a-card rv"><span class="num">01</span><div><h3>Fundraising</h3><p>Major gifts, grants and events. A $250,000 gift from one family for a centennial year. $130,000 in unrestricted grants for IDA in two years, more than its annual net revenue.</p></div></article>
+      <article class="a-card rv"><span class="num">01</span><div><h3>Fundraising</h3><p>Major gifts, grants and events. A $250,000 gift from one family for the JASSC Centennial Celebration. $130,000 in unrestricted donations and grants for IDA over two years, more than its annual net revenue.</p></div></article>
       <article class="a-card rv"><span class="num">02</span><div><h3>Membership growth</h3><p>A three-year campaign at JASSC, funded by a $150,000 capacity grant, grew corporate and individual members by 25% and held renewals at 90%.</p></div></article>
-      <article class="a-card rv"><span class="num">03</span><div><h3>Governance and compliance</h3><p>Organizations that have drifted out of compliance get back in order: bylaws rewritten, tax requirements met, and marketing materials brought up to standard. I rewrote IDA's bylaws.</p></div></article>
+      <article class="a-card rv"><span class="num">03</span><div><h3>Governance and finance</h3><p>Budgets, bylaws and compliance kept in order. I managed a $623,000 annual budget as President of JASSC, revised and updated IDA’s bylaws, and have brought organizations that drifted out of compliance back into line.</p></div></article>
       <article class="a-card rv"><span class="num">04</span><div><h3>Partnerships and government</h3><p>Decades of work with state agencies, regional centers, foundations and corporate partners. Interviewed live on CNN, MSNBC and KABC.</p></div></article>
     </div>
   </section>
 
   <div class="a-icc-band">
-    <section class="wrap a-icc" aria-label="ICC Vice-Chair">
+    <section class="wrap a-icc" id="icc" aria-label="ICC Vice Chair">
       <div class="seal rv">
         <span class="tag" style="color:rgba(255,255,255,.7)">Governor appointed</span>
         <div>
-          <div class="yr">2014–<br>today</div>
-          <small>Vice-Chair, California State Interagency Coordinating Council on Early Intervention</small>
+          <div class="yr">2019–<br>today</div>
+          <small>Vice Chair, California State Interagency Coordinating Council on Early Intervention. Member since 2014.</small>
         </div>
       </div>
       <div class="txt">
         <span class="tag">Early intervention</span>
-        <h2>Vice-Chair of California's council on early intervention since 2014.</h2>
-        <p>Appointed by Governor Edmund G. Brown Jr. The ICC advises the California Department of Developmental Services on services for infants and toddlers, birth to three, who have or are at risk for a disability, and their families.</p>
+        <h2 class="split">Vice Chair of California’s council on early intervention.</h2>
+        <p>Governor Jerry Brown appointed me to the council in 2014, and I was elected Vice Chair in 2019. The ICC advises the California Department of Developmental Services on services for infants and toddlers, birth to three, who have or are at risk for a disability, and their families.</p>
         <div class="a-roles rv">
           <div>Board President, Autism Partnership Foundation <span>2012–now</span></div>
+          <div>First-ever Executive Director, Sister Cities of Long Beach <span>2025–26</span></div>
           <div>First-ever Executive Director, Infant Development Association of California <span>2021–24</span></div>
           <div>Trustee, Secretary and Treasurer, Harbor Regional Center <span>2010–17</span></div>
         </div>
@@ -271,48 +342,50 @@ img, video { max-width: 100%; display: block; }
     </section>
   </div>
 
-  <section class="wrap a-story" aria-label="Story">
+  <section class="wrap a-story" id="story" aria-label="Story">
     <div class="left">
       <span class="tag">How I got here</span>
-      <h2>Three decades of keeping good organizations standing.</h2>
-      <p><span class="ph">Draft</span>&nbsp; Doug to edit in his own words.</p>
+      <h2 class="split">From a classroom in Anjo to three decades of nonprofit leadership.</h2>
+      <figure class="a-portrait reveal-img"><img src="assets/headshot.jpg" width="800" height="1120" alt="Portrait of Douglas Erber" loading="lazy" decoding="async"></figure>
     </div>
     <div class="a-beats">
-      <div class="a-beat rv"><span>JASSC</span><p>At the Japan America Society of Southern California I ran the galas, the members and the centennial, and built a $1.5 million relief fund when Japan needed it in 2011.</p></div>
-      <div class="a-beat rv"><span>Board work</span><p>I joined boards for the work, not the title: trustee, secretary and treasurer at Harbor Regional Center, and board president at Autism Partnership Foundation since 2012.</p></div>
-      <div class="a-beat rv"><span>Statewide</span><p>In 2014 the governor appointed me to California's council on early intervention. I've served as its Vice-Chair ever since.</p></div>
-      <div class="a-beat rv"><span>First ED</span><p>As the Infant Development Association's first-ever executive director, I rewrote the bylaws and raised more in unrestricted grants than the organization nets in a year.</p></div>
+      <div class="a-beat rv"><span>1989 · Anjo</span><p>My career in international relations and nonprofit leadership began in 1989, when I moved to Anjo, Japan, to teach English in public junior high schools and serve as the city’s International Coordinator. That experience gave me a deep appreciation for building meaningful relationships across cultures, and inspired me to pursue a career connecting people and communities.</p></div>
+      <div class="a-beat rv"><span>1993 · JASSC</span><p>In 1993 I joined the Japan America Society of Southern California, where I spent the next 27 years, eventually serving as President and leading its fundraising, membership development, community partnerships and operations.</p></div>
+      <div class="a-beat rv"><span>Since 2021</span><p>Since then I’ve served as an executive director and nonprofit board leader, helping organizations strengthen their financial sustainability, expand their reach and fulfill their missions.</p></div>
+      <div class="a-beat rv"><span>Why</span><p>What has kept me passionate about this work for more than three decades is the opportunity to bring people together, build lasting relationships and make a meaningful difference in the communities we serve.</p></div>
     </div>
   </section>
 
   <section class="wrap a-cases" id="results">
     <div class="left">
       <span class="tag">Selected results</span>
-      <h2>A few results worth a closer look.</h2>
-      <p>Each one started with a real problem: a funding gap, a disaster, a shrinking member base.</p>
+      <h2 class="split">Three results worth a closer look.</h2>
+      <p>Each one started with a real need: a disaster, a milestone to fund, a member base to grow.</p>
       <nav class="a-index" aria-label="Results">
-        <a href="#case-relief"><span class="thumb">$1.5M</span><span class="meta"><small>Disaster relief</small><b>Japan relief and recovery fund</b></span></a>
-        <a href="#case-gift"><span class="thumb">$250K</span><span class="meta"><small>Major gifts</small><b>JASSC Centennial gift</b></span></a>
-        <a href="#case-ida"><span class="thumb">$130K</span><span class="meta"><small>Unrestricted grants</small><b>IDA of California</b></span></a>
+        <a href="#case-relief"><span class="thumb">$1.5M</span><span class="meta"><small>Disaster relief</small><b>Japan Disaster Relief Fund</b></span></a>
+        <a href="#case-gift"><span class="thumb">$250K</span><span class="meta"><small>Major gifts</small><b>Centennial Celebration gift</b></span></a>
+        <a href="#case-members"><span class="thumb">+25%</span><span class="meta"><small>Membership</small><b>Growth and 90% retention</b></span></a>
       </nav>
     </div>
     <div class="a-case-list">
       <article class="a-case rv" id="case-relief">
         <div class="vis" style="--x:25%;--y:85%"><span>$1.5M</span></div>
-        <div class="body"><small>Disaster relief · JASSC</small><h3>Japan relief and recovery fund</h3><p>Created and managed a $1.5 million fund for immediate relief and long-term recovery after the 2011 earthquake, tsunami and nuclear disaster in Japan.</p></div>
+        <div class="body"><small>Leadership, fundraising and international partnerships · JASSC</small><h3>$1.5 million Japan Disaster Relief Fund</h3><p>After the devastating 2011 earthquake, tsunami and nuclear disaster in Japan, I created and managed a $1.5 million relief fund through the Japan America Society of Southern California. It supported immediate humanitarian relief and long-term recovery, and showed what individuals, businesses and communities can do together in a time of extraordinary need.</p></div>
       </article>
       <article class="a-case rv" id="case-gift">
-        <div class="vis" style="--x:75%;--y:20%"><span>$250K</span></div>
-        <div class="body"><small>Major gifts · JASSC</small><h3>A centennial year, funded</h3><p>Cultivated and secured a $250,000 gift from a high-wealth family to prepare for and run the society's year-long Centennial Celebration.</p></div>
+        <div class="vis photo"><img src="assets/gala-speech.jpg" width="914" height="1280" alt="Douglas Erber speaking at the Japan America Society's Centennial of Promise gala" loading="lazy" decoding="async"><span>$250K</span></div>
+        <div class="body"><small>Major donor cultivation and relationship building · JASSC</small><h3>$250,000 Centennial Celebration gift</h3><p>As the Japan America Society prepared to celebrate its 100th anniversary, it needed significant support to present a meaningful, year-long Centennial Celebration. Through personal relationship building and donor cultivation, I secured a $250,000 contribution from one generous family to help make the milestone possible.</p></div>
       </article>
-      <article class="a-case rv" id="case-ida">
-        <div class="vis" style="--x:50%;--y:100%"><span>$130K</span></div>
-        <div class="body"><small>Unrestricted grants · IDA</small><h3>More than a year's net revenue</h3><p>As IDA's first-ever executive director, secured $130,000 in unrestricted grants over two years, an amount larger than the organization's annual net revenue.</p></div>
+      <article class="a-case rv" id="case-members">
+        <div class="vis" style="--x:60%;--y:100%"><span>+25%</span></div>
+        <div class="body"><small>Organizational sustainability and membership development · JASSC</small><h3>25% membership growth, 90% retention</h3><p>To build a strong, sustainable membership base, I secured a $150,000, three-year capacity-building grant from the Japan Foundation’s Center for Global Partnership, then led a membership campaign that grew corporate and individual membership by 25% and reached a 90% renewal rate.</p></div>
       </article>
     </div>
   </section>
 
-  <section class="wrap a-quotes" aria-label="Testimonials">
+  <!-- Testimonials: hidden until Doug's references send quotes. Remove the hidden attribute to show.
+  -->
+  <section class="wrap a-quotes" aria-label="Testimonials" hidden>
     <figure class="a-quote rv"><p>A short quote from a coworker or board chair Doug worked with goes here.</p><figcaption><span class="ph">Placeholder</span><br><br>Name, title, organization</figcaption></figure>
     <figure class="a-quote rv"><p>A short quote from a partner, donor or ICC colleague goes here.</p><figcaption><span class="ph">Placeholder</span><br><br>Name, title, organization</figcaption></figure>
   </section>
@@ -320,7 +393,8 @@ img, video { max-width: 100%; display: block; }
   <div class="a-footer-shell" id="contact">
     <footer class="a-footer">
       <div class="wrap">
-        <h2>Hiring your next executive director?</h2>
+        <div class="who rv"><img src="assets/headshot-face.jpg" width="192" height="192" alt="" loading="lazy" decoding="async"><div>Douglas Erber<small>Nonprofit executive director · Long Beach</small></div></div>
+        <h2 class="split">Hiring your next executive director?</h2>
         <div class="row">
           <a class="btn-a" href="mailto:dougerber@hotmail.com?subject=Executive%20director%20conversation"><i>→</i>Email Doug</a>
           <a class="btn-a ghost" href="https://www.linkedin.com/in/douglaserber" target="_blank" rel="noopener"><i>↗</i>LinkedIn</a>
@@ -366,6 +440,17 @@ img, video { max-width: 100%; display: block; }
     });
   }
 
+  // Floating section nav: slides in once the visitor is past the hero
+  var mininav = document.getElementById('mininav');
+  var statement = document.querySelector('.a-statement');
+  var navTick = false;
+  function navCheck() {
+    navTick = false;
+    mininav.classList.toggle('show', statement.getBoundingClientRect().top < window.innerHeight * 0.6);
+  }
+  window.addEventListener('scroll', function () { if (!navTick) { navTick = true; requestAnimationFrame(navCheck); } }, { passive: true });
+  navCheck();
+
   // Hero video: show it once it can play; fall back to the still photo
   var video = document.getElementById('hero-video');
   var img = document.getElementById('hero-img');
@@ -383,6 +468,7 @@ img, video { max-width: 100%; display: block; }
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { runStats(); io.disconnect(); } }); }, { threshold: .4 });
     io.observe(document.getElementById('stats'));
     document.querySelectorAll('.rv').forEach(function (el) { el.style.opacity = 1; el.style.transform = 'none'; });
+    document.querySelectorAll('.a-beat').forEach(function (el) { el.classList.add('in'); });
     return;
   }
 
@@ -397,7 +483,7 @@ img, video { max-width: 100%; display: block; }
     document.querySelectorAll('a[href^="#"]').forEach(function (a) {
       a.addEventListener('click', function (ev) {
         var id = a.getAttribute('href'); var target = id.length > 1 && document.querySelector(id);
-        if (target) { ev.preventDefault(); lenis.scrollTo(target, { offset: -16 }); }
+        if (target) { ev.preventDefault(); lenis.scrollTo(target, { offset: id === '#top' ? 0 : -76 }); }
       });
     });
   }
@@ -435,13 +521,55 @@ img, video { max-width: 100%; display: block; }
   // Stats
   ScrollTrigger.create({ trigger: '#stats', start: 'top 85%', once: true, onEnter: runStats });
 
-  // Reveals
+  // Reveals: fade up once, then hand transforms back to CSS so hover lifts work
   gsap.utils.toArray('.rv').forEach(function (el) {
     gsap.to(el, { opacity: 1, y: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
   });
 
-  // Big footer line
-  gsap.from('.a-footer h2', { yPercent: 30, opacity: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: '.a-footer', start: 'top 75%', once: true } });
+  // Headings rise in word by word
+  gsap.utils.toArray('.split').forEach(function (h) {
+    h.innerHTML = h.textContent.trim().split(/\s+/).map(function (w) {
+      return '<span class="wd"><span>' + w.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</span></span>';
+    }).join(' ');
+    gsap.from(h.querySelectorAll('.wd > span'), { yPercent: 108, duration: 1.1, ease: 'expo.out', stagger: .035, scrollTrigger: { trigger: h, start: 'top 86%', once: true } });
+  });
+
+  // Portrait: opens from a smaller frame, then drifts slightly as you scroll
+  gsap.utils.toArray('.reveal-img').forEach(function (box) {
+    var im = box.querySelector('img');
+    gsap.fromTo(box, { clipPath: 'inset(12% 10% 12% 10% round 10px)' }, { clipPath: 'inset(0% 0% 0% 0% round 10px)', duration: 1.5, ease: 'expo.out', scrollTrigger: { trigger: box, start: 'top 85%', once: true } });
+    gsap.fromTo(im, { scale: 1.35 }, { scale: 1.12, duration: 1.8, ease: 'expo.out', scrollTrigger: { trigger: box, start: 'top 85%', once: true } });
+    gsap.fromTo(im, { yPercent: -4 }, { yPercent: 4, ease: 'none', scrollTrigger: { trigger: box, start: 'top bottom', end: 'bottom top', scrub: true } });
+  });
+
+  // Gala photo: settles in and drifts with the scroll
+  gsap.utils.toArray('.a-case .vis.photo img').forEach(function (im) {
+    gsap.fromTo(im, { scale: 1.3 }, { scale: 1.1, duration: 1.8, ease: 'expo.out', scrollTrigger: { trigger: im.parentNode, start: 'top 85%', once: true } });
+    gsap.fromTo(im, { yPercent: -4 }, { yPercent: 4, ease: 'none', scrollTrigger: { trigger: im.parentNode, start: 'top bottom', end: 'bottom top', scrub: true } });
+  });
+
+  // Result cards: the green glow follows the pointer
+  document.querySelectorAll('.a-case .vis:not(.photo)').forEach(function (v) {
+    v.addEventListener('pointermove', function (e) {
+      var r = v.getBoundingClientRect();
+      gsap.to(v, { '--x': ((e.clientX - r.left) / r.width * 100) + '%', '--y': ((e.clientY - r.top) / r.height * 100) + '%', duration: .8, ease: 'power3.out', overwrite: 'auto' });
+    });
+  });
+
+  // Story beats: draw the green rule under each beat as it arrives
+  gsap.utils.toArray('.a-beat').forEach(function (b) {
+    ScrollTrigger.create({ trigger: b, start: 'top 75%', once: true, onEnter: function () { b.classList.add('in'); } });
+  });
+
+  // Results index and floating nav follow along with the section you're reading
+  document.querySelectorAll('.a-index a').forEach(function (a) {
+    var card = document.querySelector(a.getAttribute('href'));
+    if (card) ScrollTrigger.create({ trigger: card, start: 'top 55%', end: 'bottom 55%', toggleClass: { targets: a, className: 'on' } });
+  });
+  document.querySelectorAll('.a-mininav .links a').forEach(function (a) {
+    var sec = document.querySelector(a.getAttribute('href'));
+    if (sec) ScrollTrigger.create({ trigger: sec, start: 'top 50%', end: 'bottom 50%', toggleClass: { targets: a, className: 'on' } });
+  });
 
   window.addEventListener('load', function () { ScrollTrigger.refresh(); });
 })();
