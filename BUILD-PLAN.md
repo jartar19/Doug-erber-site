@@ -170,13 +170,12 @@ ffmpeg -i source.mp4 -an -vf "scale=1280:-2,fps=24" -c:v libx264 -preset slow \
 
 ### 18. Deploy
 
-**Live now (November 23, 2026):** https://doug-erber-site.vercel.app, Vercel project `doug-erber-site` (framework "Other") on Jared's Hobby account. Deployed directly through the Vercel API. For now `vercel.json` proxies `/assets/hero-orbit.mp4` and `/assets/hero-poster.jpg` to their copies in Jared's Higgsfield library, so the live site does not yet serve the files in `/assets`.
+**Live (November 23, 2026):** https://doug-erber-site.vercel.app, Vercel project `doug-erber-site` (framework "Other", no build step) on Jared's Hobby account, built from the private GitHub repo `jartar19/doug-erber-site`.
 
-Target setup:
-1. Push to the private GitHub repo `jartar19/doug-erber-site` (done November 23, 2026, including the hero video and poster in `/assets`).
-2. In Vercel, connect GitHub and link the repo to the existing `doug-erber-site` project (Settings → Git), Framework preset "Other". Not done yet.
-3. Every push to `main` redeploys automatically. Once the real files are in `/assets`, the proxy rewrites come out of `vercel.json`.
-4. `.vercelignore` keeps this build plan off the public site.
+1. Edit files and push to `main`.
+2. Vercel redeploys production automatically on every push to `main`.
+3. Media lives in `/assets` and is served by Vercel directly (cached for an hour, so a replaced video shows up within the hour).
+4. `.vercelignore` keeps this build plan and the README off the public site.
 
 ### 19. Domain (Cloudflare)
 
