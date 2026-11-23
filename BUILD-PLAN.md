@@ -74,7 +74,7 @@ The hero is a real moment: Doug at the Japan America Society podium on the field
 
 ### 6. Three cinematic scenes (three separate shots)
 
-1. **Hero fly-in, "The Field" (done, live).** Opens on all of Dodger Stadium at golden hour with downtown LA on the horizon and a seated audience on the field. As the visitor scrolls, the camera descends and orbits in until it lands on Doug at the Japan America Society podium, matching the real photo. Generated as a pull-back from the photo, then reversed. Scrubbed by scroll in the hero. The name gets clearer as the camera flies in: it starts at 60% strength, and a dark scrim builds in the lower-left corner behind it, so by the time the camera reaches Doug the name is solid white and fully readable.
+1. **Hero fly-in, "The Field" (done, live).** Opens on all of Dodger Stadium at golden hour with downtown LA on the horizon and a seated audience on the field. As the visitor scrolls, the camera descends and orbits in until it lands on Doug at the Japan America Society podium, matching the real photo. Generated as a pull-back from the photo, then reversed. Scrubbed by scroll in the hero. The name gets clearer as the camera flies in: it starts at 60% strength, and a dark scrim builds in the lower-left corner behind it, so by the time the camera reaches Doug the name is solid white and fully readable. Over the second half of the flight the frame pans so Doug lands dead center (phones slide the crop; wide screens zoom about 10%), and the last 6% of the scroll dissolves into the full-resolution podium photo (`assets/hero-end.jpg`, the original 1536 px shot the clip was generated from), because the video's own last frame is soft.
 2. **"The Centennial" (proposed).** From `gala-speech.jpg`: Doug at the "Centennial of Promise, 100 Years" podium. A slow push-in from the back of the ballroom to a medium close-up as stage light warms. For the Story section.
 3. **"The Portrait" (proposed).** From `headshot.jpg`: a subtle parallax portrait, slight head turn and a soft smile, studio backdrop. For the final CTA, so the last thing a board sees is Doug looking at them.
 
@@ -166,6 +166,7 @@ Single column under 860 px. Hero stays full-bleed; scrubbing still works on iOS 
 └── assets/
     ├── hero-orbit.mp4
     ├── hero-poster.jpg
+    ├── hero-end.jpg       (full-res final frame of the hero)
     ├── headshot.jpg       (story section)
     ├── headshot-face.jpg  (footer signature)
     └── gala-speech.jpg    (Centennial result card)

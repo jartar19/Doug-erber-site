@@ -58,6 +58,7 @@ img, video { max-width: 100%; display: block; }
 .a-stage-img { transform-origin: 50% 30%; will-change: transform; }
 .a-video { opacity: 0; transition: opacity .6s ease; }
 .a-video.ready { opacity: 1; }
+.a-end { opacity: 0; }
 .a-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,20,13,.55) 0%, rgba(6,20,13,.1) 30%, rgba(6,20,13,.7) 75%, #06140D 100%); }
 .a-glow { position: absolute; inset: -20%; filter: blur(60px); opacity: .32; mix-blend-mode: screen; }
 .a-glow b { position: absolute; border-radius: 50%; display: block; }
@@ -270,6 +271,7 @@ main section[id], #contact { scroll-margin-top: 80px; }
         <video class="a-stage a-video" id="hero-video" muted playsinline preload="auto" poster="assets/hero-poster.jpg">
           <source src="assets/hero-orbit.mp4" type="video/mp4">
         </video>
+        <img class="a-stage a-end" id="hero-end" src="assets/hero-end.jpg" width="1536" height="1148" alt="" decoding="async">
       </div>
       <div class="a-shade" aria-hidden="true"></div>
       <div class="a-glow" aria-hidden="true"><b class="g1"></b><b class="g2"></b><b class="g3"></b></div>
@@ -496,7 +498,7 @@ main section[id], #contact { scroll-margin-top: 80px; }
   var heroShell = document.querySelector('.a-hero-shell');
   var tl = gsap.timeline({
     scrollTrigger: {
-      trigger: heroShell, start: 'top top', end: '+=100%', pin: true, scrub: true,
+      trigger: heroShell, start: 'top top', end: '+=100%', pin: true, scrub: true, invalidateOnRefresh: true,
       onUpdate: function (self) {
         if (videoOk && video.duration) {
           var t = self.progress * (video.duration - 0.05);
@@ -505,12 +507,32 @@ main section[id], #contact { scroll-margin-top: 80px; }
       }
     }
   });
+  // Landing: the last stretch pans so Doug ends up centered, then dissolves into the full-resolution photo.
+  // Doug sits at about 45.5% across the frame. Phones have spare width, so the crop slides; wide screens
+  // have none, so the frame zooms just enough to shift him to the middle without showing an edge.
+  var endImg = document.getElementById('hero-end');
+  var stageMedia = [video, endImg];
+  var DOUG_X = 0.455, FRAME_AR = 1108 / 828;
+  function heroFit() {
+    var r = heroShell.querySelector('.a-hero').getBoundingClientRect();
+    var cW = r.width, cH = r.height, c = cW / 2;
+    var iW = Math.max(cW, cH * FRAME_AR), px = 0.55;
+    if (iW - cW > 1) px = Math.min(1, Math.max(0, (DOUG_X * iW - c) / (iW - cW)));
+    var d = (cW - iW) * px + DOUG_X * iW - c;
+    var sc = Math.abs(d) > 0.5 ? c / (c - Math.abs(d)) : 1;
+    return { pos: (px * 100).toFixed(2) + '% 20%', scale: sc, x: -sc * d };
+  }
+  var fit = heroFit();
+  ScrollTrigger.addEventListener('refreshInit', function () { fit = heroFit(); });
+
   // As the camera flies in, the name gets clearer: a dark scrim builds behind it and the text comes up to full strength
   tl.fromTo(img, { scale: 1.04, xPercent: 0 }, { scale: 1.16, xPercent: -3, ease: 'none', duration: 1 }, 0)
     .fromTo('.a-scrim', { opacity: 0 }, { opacity: 1, ease: 'none', duration: .8 }, 0)
     .fromTo('.a-hero-text h1', { opacity: .6 }, { opacity: 1, ease: 'none', duration: .8 }, 0)
     .fromTo('.a-hero-text .eyebrow', { color: 'rgba(255,255,255,.75)' }, { color: 'rgba(255,255,255,1)', ease: 'none', duration: .8 }, 0)
-    .to('.a-scrollhint', { opacity: 0, ease: 'none', duration: .2 }, 0);
+    .to('.a-scrollhint', { opacity: 0, ease: 'none', duration: .2 }, 0)
+    .fromTo(stageMedia, { objectPosition: '55% 20%', scale: 1, x: 0 }, { objectPosition: function () { return fit.pos; }, scale: function () { return fit.scale; }, x: function () { return fit.x; }, ease: 'power1.inOut', duration: .45 }, .55)
+    .fromTo(endImg, { opacity: 0 }, { opacity: 1, ease: 'power2.in', duration: .06 }, .94);
 
   // Mission words light up
   gsap.to(words, {
