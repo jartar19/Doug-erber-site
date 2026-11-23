@@ -93,7 +93,7 @@ The hero is a real moment: Doug at the Japan America Society podium on the field
 7. **Selected results:** Doug's three picks: $1.5M Japan Disaster Relief Fund, $250K Centennial gift (with the Centennial gala photo), 25% membership growth.
 8. **Testimonials:** two to three quotes. *Section built but hidden until Doug's references send quotes.*
 9. **Featured writing (phase 2):** home for LinkedIn posts or a Substack if Doug agrees.
-10. **Final CTA:** "Hiring your next executive director?" with Email Doug and LinkedIn.
+10. **Final CTA:** "Let's connect." with one plain line inviting boards, colleagues and partners to email, plus Email Doug and LinkedIn buttons.
 11. **Footer:** name, city, year.
 
 ### 8. Section notes
