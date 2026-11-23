@@ -84,18 +84,21 @@ The hero is a real moment: Doug at the Japan America Society podium on the field
 
 ### 7. Page order
 
+Reworked November 23, 2026 so the page reads as a pitch to a board, not a resume. The hero is unchanged; everything below it leads with what Doug solves, then the proof, then the chronology.
+
 1. **Hero:** full-bleed night stage with the orbit video, name, one-line title, organization marquee.
-2. **Animated stats strip:** four tiles count up when they scroll into view.
-3. **Mission statement:** big type, one paragraph.
-4. **Four pillars:** Fundraising · Membership growth · Governance and finance · Partnerships and government.
-5. **ICC band:** Vice Chair since 2019 (appointed 2014), with a list of his other board and public service (APF, Harbor Regional Center, Japan House LA, LAEDC, NAJAS).
-6. **Story:** Doug's own four-beat career arc (Anjo 1989, JASSC 1993, ED and board work since 2021, why), with his studio headshot.
-7. **Selected results:** Doug's three picks: $1.5M Japan Disaster Relief Fund, $250K Centennial gift (with the Centennial gala photo), 25% membership growth.
-8. **Experience:** every role from his resume, most recent first (SCLB, CA-SIG, IDA, JASSC, CSULB, Anjo), plus an Education card. Added after the Nov 23 audit because boards and recruiters look for a plain chronology.
-9. **Testimonials:** two to three quotes. *Section built but hidden until Doug's references send quotes.*
-10. **Featured writing (phase 2):** home for LinkedIn posts or a Substack if Doug agrees.
-11. **Final CTA:** "Let's connect." with one plain line inviting boards, colleagues and partners to email, plus Email Doug, Copy email and LinkedIn buttons.
-12. **Footer:** name, city, email link, year.
+2. **Mission statement:** Doug's own sentence in the display serif, lighting up word by word, with his availability line under it.
+3. **Animated stats strip:** four tiles count up when they scroll into view.
+4. **Where I help (`#work`):** "If one of these sounds like your board, let's talk." Five situations a board recognizes, each written as the board would say it, with Doug's answer from his own record and a proof chip. Ends with the main call to action, "Tell me what you're facing" (opens an email).
+5. **Selected results:** Doug's three picks ($1.5M relief fund, $250K Centennial gift with the gala photo, +25% membership with a 90% renewal ring).
+6. **ICC band:** Vice Chair since 2019, appointed 2014, with three fact chips. The other boards moved to the Experience timeline.
+7. **How I work (`#how`):** four principles, each tied to something he has done (bylaws, the Centennial gift, 14 years of 100% board giving, ICC Vice Chair).
+8. **Story:** Doug's own four-beat career arc with his studio headshot.
+9. **Experience:** a career timeline (staff roles and board seats as bars from 1989 to now), then "Role by role" details behind a button, and the Education card.
+10. **Testimonials:** *section built but hidden until Doug's references send quotes.*
+11. **Featured writing (phase 2):** home for LinkedIn posts or a Substack if Doug agrees.
+12. **Final CTA:** "Let's connect." with a line on who should write and why, Email Doug, Copy email and LinkedIn buttons, and five topic links that open an email with the subject filled in (executive director search, board seat, fundraising or membership, governance and compliance, hello).
+13. **Footer:** name, city, email link, year.
 
 ### 8. Section notes
 
@@ -128,7 +131,11 @@ Glows on dark panels use `#1B5E3B`, `#2D8A57` and `#52B788`.
 
 ### 10. Typography
 
-Inter Tight (Google Fonts), weights 400/500/600. Headlines 500 with tight tracking (−0.03 to −0.05 em). Hero name up to 92 px; footer headline up to 100 px. Numbers use tabular figures.
+Two faces, both self-hosted in `assets/fonts`.
+
+- **Fraunces** (variable, optical size and weight axes, roman and italic) for display: section headings, the mission line, stat numbers, result figures, the ICC seal, problem quotes and card titles. Weight 330 to 400 at optical size 144, tracking about −0.02 em. One or two words in each heading are set in italic accent green (mint on dark panels).
+- **Inter Tight** 400/500/600 for body text, labels, buttons and navigation. The hero name stays in Inter Tight.
+- Scale: section headings 36 to 66 px, footer headline up to 136 px, lead paragraphs 17 to 20 px, body 15 to 17 px, labels 12 px uppercase with wide tracking and a short rule.
 
 ### 11. Animation direction
 
@@ -136,7 +143,7 @@ Calm and expensive: long ease-out curves, nothing bouncy. Section text rises 24 
 
 ### 12. Interaction design
 
-Pill buttons with an accent circle arrow. Sticky left columns on desktop. A floating pill nav (Work, ICC, Story, Results, Contact) slides in after the hero and highlights the section you're in. Case index links jump to their cards and highlight while their card is on screen. Cards, stat tiles and role rows lift or brighten on hover; the green glow on the result cards follows the pointer. All motion respects `prefers-reduced-motion` (no smooth scroll, no scrubbing, numbers shown final).
+Pill buttons in four variants (primary green, light, ghost on dark, outline), each with an icon chip. On hover a fill sweeps up from the bottom and the icon slides out and back in; on press the button scales to 97%; focus shows a ring. Copy email swaps to a check mark when it works. All icons are hand-drawn SVG symbols in one sprite at the top of the body. Sticky left columns on desktop. A floating pill nav (How I help, Results, ICC, Story, Experience, Contact) slides in after the hero and highlights the section you're in. Case index links jump to their cards and highlight while their card is on screen. Cards, stat tiles and role rows lift or brighten on hover; the green glow on the result cards follows the pointer. All motion respects `prefers-reduced-motion` (no smooth scroll, no scrubbing, numbers shown final).
 
 ### 13. Scroll behavior
 
@@ -170,7 +177,7 @@ Single column under 860 px. Hero stays full-bleed; scrubbing still works on iOS 
 ├── vercel.json        (cache and security headers)
 └── assets/
     ├── js/                (gsap, ScrollTrigger, lenis)
-    ├── fonts/             (Inter Tight woff2)
+    ├── fonts/             (Inter Tight and Fraunces woff2)
     ├── share.jpg          (1200x630 link-preview card for LinkedIn, iMessage, email)
     ├── favicon-32.png, icon-512.png
     ├── hero-orbit.mp4
@@ -209,6 +216,7 @@ A keyframe every 6 frames (a quarter second) with no B-frames keeps scrubbing sm
 ### 20. Open items
 
 - [x] Doug confirms the mission line and edits the Story section
+- [ ] Doug reviews the new pitch copy (Where I help, How I work, the footer line). It is built only from his own facts, but the framing is new
 - [ ] Two or three testimonials (names, titles, quotes, permission)
 - [ ] Buy dougerber.com on Cloudflare in Doug's name (no backup picked yet). Email stays dougerber@hotmail.com; no phone number on the site
 - [ ] Gated resume download: Doug wants it only behind a full contact form that requires a working business email domain. Needs his resume PDF and a form backend

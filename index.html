@@ -30,6 +30,8 @@
 @font-face { font-family: "Inter Tight"; font-style: normal; font-weight: 400; font-display: swap; src: url(assets/fonts/inter-tight-latin-400-normal.woff2) format("woff2"); }
 @font-face { font-family: "Inter Tight"; font-style: normal; font-weight: 500; font-display: swap; src: url(assets/fonts/inter-tight-latin-500-normal.woff2) format("woff2"); }
 @font-face { font-family: "Inter Tight"; font-style: normal; font-weight: 600; font-display: swap; src: url(assets/fonts/inter-tight-latin-600-normal.woff2) format("woff2"); }
+@font-face { font-family: "Fraunces"; font-style: normal; font-weight: 100 900; font-display: swap; src: url(assets/fonts/fraunces-opsz-normal.woff2) format("woff2"); }
+@font-face { font-family: "Fraunces"; font-style: italic; font-weight: 100 900; font-display: swap; src: url(assets/fonts/fraunces-opsz-italic.woff2) format("woff2"); }
 :root {
   --a-bg: #F4F5F2;
   --a-card: #E6E9E3;
@@ -104,203 +106,305 @@ img, video { max-width: 100%; display: block; }
 @keyframes slide { to { transform: translateX(-50%); } }
 @media (max-width: 560px) { .a-nav { gap: 14px; } .a-scrollhint { display: none; } }
 
-/* Statement */
-.a-statement { padding-block: clamp(72px, 11vw, 150px); }
-.a-statement .inner { max-width: 880px; margin-left: auto; margin-right: clamp(0px, 6vw, 120px); display: grid; gap: 20px; }
-.a-statement p.big { font-size: clamp(26px, 3.6vw, 50px); line-height: 1.05; letter-spacing: -.03em; font-weight: 500; text-indent: 2.2em; }
-.a-statement p.big .w { color: #868C85; transition: color .3s; }
-.a-statement p.big .w.on { color: var(--a-ink); }
-.a-statement p.sub { color: var(--a-mute); font-size: 16px; }
-
-/* Stats */
-.a-stats { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; }
-.a-stat { background: #fff; border-radius: 8px; padding: 22px 22px 20px; display: grid; gap: 34px; align-content: space-between; min-width: 0; position: relative; overflow: hidden; }
-.a-stat::after { content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; background: var(--a-accent); transform: scaleX(var(--bar, 0)); transform-origin: left; transition: transform 1.4s cubic-bezier(.2,.7,.2,1); }
-.a-stat .n { font-size: clamp(36px, 4.4vw, 64px); letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.a-stat .l { color: var(--a-mute); font-size: 14px; line-height: 1.4; }
-@media (max-width: 860px) { .a-stats { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-
+/* ============ Type system ============ */
+:root {
+  --font-d: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --fs-h2: clamp(36px, 4.6vw, 66px);
+  --fs-lead: clamp(17px, 1.45vw, 20px);
+  --a-soft: #DCEBE2;
+  --a-white: #FFFFFF;
+}
+.d { font-family: var(--font-d); font-weight: 380; font-variation-settings: "opsz" 144; letter-spacing: -.022em; }
+.d em, h2 em { font-style: italic; font-weight: 340; color: var(--a-accent); }
+h2.d { font-size: var(--fs-h2); line-height: 1.02; }
+.lead { font-size: var(--fs-lead); line-height: 1.5; color: var(--a-mute); }
+.label { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--a-accent); }
+.label::before { content: ""; width: 22px; height: 1px; background: currentColor; }
+.label.light { color: var(--a-accent-soft); }
+.split .wd { display: inline-block; overflow: hidden; vertical-align: top; padding: 0 .06em .12em 0; margin: 0 -.06em -.12em 0; }
+.split .wd > span { display: inline-block; }
 .tag { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: var(--a-mute); }
 .tag::before { content: ""; width: 6px; height: 6px; border-radius: 2px; background: var(--a-accent); }
 
-/* Services */
-.a-services { padding-block: clamp(80px, 10vw, 140px); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 7vw, 120px); }
-.a-services .left { position: sticky; top: 32px; align-self: start; display: grid; gap: 18px; max-width: 440px; }
-.a-services h2, .a-icc h2, .a-cases .left h2, .a-story h2, .a-exp h2 { font-size: clamp(30px, 3.6vw, 48px); line-height: 1.04; letter-spacing: -.03em; }
-.a-services .left p { color: var(--a-mute); line-height: 1.5; font-size: 16px; }
-.btn-a { display: inline-flex; align-items: center; gap: 10px; background: var(--a-ink); color: #fff; text-decoration: none; padding: 4px 18px 4px 4px; border-radius: 999px; font-size: 14px; width: max-content; transition: transform .25s ease; }
-.btn-a:hover { transform: translateY(-2px); }
-.btn-a i { width: 32px; height: 32px; border-radius: 50%; background: var(--a-accent); display: grid; place-items: center; font-style: normal; color: #fff; transition: transform .25s ease; }
-.btn-a:hover i { transform: rotate(-45deg); }
-.a-cards { display: grid; gap: 10px; }
-.a-card { background: var(--a-card); border-radius: 8px; padding: 22px 24px 24px; display: grid; gap: 56px; }
-.a-card .num { color: var(--a-accent); font-size: 12px; font-variant-numeric: tabular-nums; }
-.a-card h3 { font-size: clamp(22px, 2.2vw, 28px); letter-spacing: -.02em; }
-.a-card p { color: #4B514B; line-height: 1.5; font-size: 15px; max-width: 54ch; }
-@media (max-width: 860px) { .a-services { grid-template-columns: 1fr; } .a-services .left { position: static; } .a-card { gap: 28px; } }
+/* ============ Icons ============ */
+.ico-chip { width: 48px; height: 48px; border-radius: 14px; background: var(--a-soft); color: var(--a-accent); display: grid; place-items: center; flex: none; transition: background .35s ease, color .35s ease, transform .5s var(--ease-out); }
+.ico-chip svg { width: 24px; height: 24px; }
+svg.i { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 
-/* ICC */
-.a-icc-band { background: #E1E5DE; }
-.a-icc { padding-block: clamp(80px, 10vw, 130px); display: grid; grid-template-columns: minmax(0,5fr) minmax(0,6fr); gap: clamp(32px, 7vw, 120px); align-items: start; }
-.a-icc .seal { background: var(--a-night); color: #fff; border-radius: 10px; padding: clamp(24px, 3vw, 36px); position: relative; overflow: hidden; display: grid; gap: 80px; min-height: 360px; align-content: space-between; }
-.a-icc .seal::before { content: ""; position: absolute; width: 140%; height: 60%; left: -20%; bottom: -30%; background: radial-gradient(closest-side, #2D8A57, transparent); filter: blur(40px); }
-.a-icc .seal > * { position: relative; }
-.a-icc .seal .yr { font-size: clamp(64px, 9vw, 120px); letter-spacing: -.05em; line-height: .9; }
-.a-icc .seal small { color: rgba(255,255,255,.65); font-size: 13px; display: block; margin-top: 10px; }
-.a-icc .txt { display: grid; gap: 20px; }
-.a-icc .txt > p { color: #4B514B; font-size: 16px; line-height: 1.55; max-width: 58ch; }
-.a-roles { display: grid; gap: 1px; background: #C8CEC5; border-radius: 8px; overflow: hidden; margin: 0; padding: 0; list-style: none; }
-.a-sub { font-size: 13px; font-weight: 500; color: var(--a-accent); margin-top: 10px; }
-.a-roles li { background: #EEF0EB; padding: 14px 16px; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 12px; font-size: 15px; }
-.a-roles span { color: var(--a-mute); font-variant-numeric: tabular-nums; white-space: nowrap; }
-@media (max-width: 860px) { .a-icc { grid-template-columns: 1fr; } .a-icc .seal { min-height: 0; gap: 40px; } }
+/* ============ Buttons ============ */
+.btn { --bg: var(--a-ink); --fg: #fff; --hover: #28332C; --chip: rgba(255,255,255,.14); --chip-fg: #fff;
+  position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; gap: 14px; height: 54px; padding: 0 7px 0 24px; border: 0; border-radius: 999px;
+  background: var(--bg); color: var(--fg); font: 500 15px/1 var(--font-a); letter-spacing: -.005em; text-decoration: none; white-space: nowrap; cursor: pointer; width: max-content;
+  box-shadow: 0 1px 0 rgba(255,255,255,.1) inset, 0 12px 26px -16px rgba(6,20,13,.6); transition: transform .25s var(--ease-out), box-shadow .35s ease, color .35s ease; }
+.btn::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--hover); transform: translateY(102%); transition: transform .55s var(--ease-out); }
+.btn:hover::before { transform: translateY(0); }
+.btn:hover { box-shadow: 0 1px 0 rgba(255,255,255,.1) inset, 0 18px 32px -16px rgba(6,20,13,.65); }
+.btn:active { transform: scale(.97); }
+.btn .ico { position: relative; width: 40px; height: 40px; border-radius: 50%; background: var(--chip); color: var(--chip-fg); display: grid; place-items: center; overflow: hidden; flex: none; transition: background .35s ease, color .35s ease; }
+.btn .ico svg { grid-area: 1 / 1; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform .55s var(--ease-out), opacity .3s ease; }
+.btn .ico svg.fill { fill: currentColor; stroke: none; }
+.btn .ico .nx { transform: translateX(-170%); }
+.btn:hover .ico .cur { transform: translateX(170%); }
+.btn:hover .ico .nx { transform: none; }
+.btn .ico.diag .nx { transform: translate(-170%, 170%); }
+.btn:hover .ico.diag .cur { transform: translate(170%, -170%); }
+.btn:hover .ico.diag .nx { transform: none; }
+.btn .ico .ok { opacity: 0; transform: scale(.4); }
+.btn.done .ico .cur { opacity: 0; transform: scale(.4); }
+.btn.done .ico .ok { opacity: 1; transform: none; }
+.btn-primary { --bg: var(--a-accent); --hover: #22553E; --chip: #fff; --chip-fg: var(--a-accent); }
+.btn-light { --bg: #fff; --fg: var(--a-ink); --hover: #E2F1E8; --chip: var(--a-accent); --chip-fg: #fff; }
+.btn-ghost { --bg: transparent; --fg: #fff; --hover: rgba(255,255,255,.1); --chip: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.28); }
+.btn-ghost:hover { box-shadow: inset 0 0 0 1px rgba(255,255,255,.5); }
+.btn-outline { --bg: transparent; --fg: var(--a-ink); --hover: #fff; --chip: var(--a-card); --chip-fg: var(--a-ink); box-shadow: inset 0 0 0 1px #C3CAC0; }
+.btn-outline:hover { box-shadow: inset 0 0 0 1px var(--a-accent), 0 14px 28px -18px rgba(6,20,13,.4); }
+.btn-outline:hover .ico { background: var(--a-accent); color: #fff; }
+.btn-note { font-size: 13px; color: var(--a-mute); }
+#copy-email { min-width: 164px; justify-content: space-between; }
 
-/* Story */
-.a-story { padding-block: clamp(80px, 10vw, 140px); display: grid; grid-template-columns: minmax(0,5fr) minmax(0,6fr); gap: clamp(32px, 7vw, 120px); }
-.a-story .left { display: grid; gap: 18px; align-content: start; }
-.a-story .left p { color: var(--a-mute); font-size: 16px; line-height: 1.5; }
-.a-beats { display: grid; gap: 0; border-top: 1px solid var(--a-line); }
-.a-beat { display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--a-line); }
-.a-beat span { color: var(--a-accent); font-size: 13px; font-variant-numeric: tabular-nums; padding-top: 4px; }
-.a-beat p { font-size: clamp(18px, 1.8vw, 22px); line-height: 1.35; letter-spacing: -.01em; }
-@media (max-width: 860px) { .a-story { grid-template-columns: 1fr; } .a-beat { grid-template-columns: 1fr; gap: 6px; } }
+/* Hero marquee: pauses under the pointer */
+.a-marquee li { transition: color .3s ease; }
+.a-marquee:hover ul { animation-play-state: paused; }
+.a-marquee li:hover { color: #fff; }
 
-/* Cases */
+/* ============ Statement + stats ============ */
+.a-statement { padding-block: clamp(80px, 12vw, 160px) clamp(56px, 8vw, 110px); }
+.a-statement .inner { max-width: 960px; margin-left: auto; margin-right: clamp(0px, 5vw, 100px); display: grid; gap: 26px; }
+.a-statement p.big { font-family: var(--font-d); font-weight: 360; font-variation-settings: "opsz" 144; font-size: clamp(30px, 3.9vw, 56px); line-height: 1.1; letter-spacing: -.02em; text-indent: 2.4em; }
+.a-statement p.big .w { color: #868C85; transition: color .3s; }
+.a-statement p.big .w.on { color: var(--a-ink); }
+.a-statement p.sub { color: var(--a-mute); font-size: 16px; line-height: 1.5; max-width: 60ch; }
+.a-stats { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; }
+.a-stat { background: #fff; border-radius: 12px; padding: 24px 24px 22px; display: grid; gap: 40px; align-content: space-between; min-width: 0; position: relative; overflow: hidden; transition: translate .35s var(--ease-out), box-shadow .35s ease; }
+.a-stat::after { content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; background: var(--a-accent); transform: scaleX(var(--bar, 0)); transform-origin: left; transition: transform 1.4s var(--ease-out); }
+.a-stat:hover { translate: 0 -3px; box-shadow: 0 16px 32px -22px rgba(6,20,13,.5); }
+.a-stat .n { font-family: var(--font-d); font-weight: 340; font-variation-settings: "opsz" 144; font-size: clamp(46px, 5.4vw, 80px); letter-spacing: -.035em; line-height: .95; font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; }
+.a-stat .l { color: var(--a-mute); font-size: 14px; line-height: 1.4; }
+@media (max-width: 860px) { .a-stats { grid-template-columns: repeat(2, minmax(0,1fr)); } .a-stat { gap: 28px; } }
+
+/* ============ Where I help ============ */
+.a-panel-shell { padding: 0 8px; }
+.a-panel { background: #fff; border-radius: 12px; }
+.a-help { padding-block: clamp(72px, 10vw, 140px); }
+.a-help-head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 24px clamp(32px, 6vw, 96px); align-items: end; margin-bottom: clamp(40px, 6vw, 72px); }
+.a-help-head .label { grid-column: 1 / -1; }
+.a-help-head h2 { max-width: 15ch; }
+.a-probs { border-top: 1px solid var(--a-line); }
+.a-prob { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 20px clamp(32px, 6vw, 96px); padding: clamp(26px, 3.4vw, 40px) clamp(0px, 1.6vw, 20px); border-bottom: 1px solid var(--a-line); position: relative; transition: background .4s ease; border-radius: 4px; }
+.a-prob:hover { background: var(--a-bg); }
+.a-prob:hover .ico-chip { background: var(--a-accent); color: #fff; transform: rotate(-6deg); }
+.a-prob .q { display: flex; gap: 20px; align-items: flex-start; }
+.a-prob h3 { font-family: var(--font-d); font-weight: 360; font-variation-settings: "opsz" 96; font-size: clamp(24px, 2.5vw, 34px); line-height: 1.12; letter-spacing: -.018em; text-indent: -.42em; padding-top: 6px; }
+.a-prob .a { display: grid; gap: 16px; align-content: start; }
+.a-prob .a p { color: #4B514B; font-size: 16px; line-height: 1.55; }
+.proof { display: inline-flex; align-items: center; gap: 8px; width: max-content; font-size: 13px; font-weight: 500; color: var(--a-accent); background: var(--a-soft); padding: 7px 12px 7px 10px; border-radius: 999px; }
+.proof svg { width: 14px; height: 14px; }
+.a-help-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; margin-top: clamp(36px, 5vw, 56px); }
+@media (max-width: 860px) { .a-help-head, .a-prob { grid-template-columns: 1fr; } .a-prob .q { gap: 14px; } .a-prob h3 { padding-top: 0; } .a-prob .ico-chip { width: 42px; height: 42px; border-radius: 12px; } .a-prob .ico-chip svg { width: 21px; height: 21px; } }
+
+/* ============ Results ============ */
 .a-cases { padding-block: clamp(80px, 10vw, 140px); display: grid; grid-template-columns: minmax(0,5fr) minmax(0,6fr); gap: clamp(32px, 7vw, 120px); }
-.a-cases .left { position: sticky; top: 32px; align-self: start; display: grid; gap: 18px; }
-.a-cases .left > p { color: var(--a-mute); font-size: 16px; line-height: 1.5; }
+.a-cases .left { position: sticky; top: 88px; align-self: start; display: grid; gap: 20px; }
 .a-index { display: grid; gap: 6px; margin-top: 10px; }
-.a-index a { display: grid; grid-template-columns: 56px minmax(0,1fr); gap: 8px; text-decoration: none; }
-.a-index .thumb { border-radius: 6px; background: linear-gradient(135deg, var(--a-accent), #06140D); color: #fff; font-size: 12px; display: grid; place-items: center; font-weight: 600; }
-.a-index .meta { background: var(--a-card); border-radius: 6px; padding: 9px 12px; }
-.a-index .meta small { color: var(--a-accent); font-size: 11px; display: block; }
+.a-index a { display: grid; grid-template-columns: 64px minmax(0,1fr); gap: 8px; text-decoration: none; }
+.a-index .thumb { border-radius: 8px; background: linear-gradient(135deg, var(--a-accent), #06140D); color: #fff; font-family: var(--font-d); font-variation-settings: "opsz" 48; font-size: 16px; display: grid; place-items: center; transition: background .3s ease; }
+.a-index .meta { background: var(--a-card); border-radius: 8px; padding: 10px 14px; transition: background .3s ease, translate .35s var(--ease-out); }
+.a-index .meta small { color: var(--a-accent); font-size: 11px; display: block; letter-spacing: .02em; }
 .a-index .meta b { font-weight: 500; font-size: 14px; }
-.a-case { background: var(--a-card); border-radius: 10px; overflow: hidden; scroll-margin-top: 24px; }
-.a-case .vis { aspect-ratio: 16/9; background: var(--a-night); position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: clamp(20px, 3vw, 32px); color: #fff; }
-.a-case .vis::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 70% at var(--x, 30%) var(--y, 80%), #2D8A57, transparent 70%); opacity: .9; }
-.a-case .vis span { position: relative; font-size: clamp(56px, 9vw, 120px); letter-spacing: -.05em; line-height: .9; font-variant-numeric: tabular-nums; }
-.a-case .body { padding: 18px 20px 22px; display: grid; gap: 6px; }
-.a-case .body small { color: var(--a-accent); font-size: 12px; }
-.a-case .body h3 { font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -.02em; }
-.a-case .body p { color: #4B514B; font-size: 15px; line-height: 1.5; max-width: 58ch; }
+.a-index a:hover .meta, .a-index a.on .meta { background: #fff; }
+.a-index a.on .meta { translate: 6px 0; }
+.a-index a.on .thumb { background: linear-gradient(135deg, var(--a-accent-hi), #06140D); }
 .a-case-list { display: grid; gap: 14px; }
+.a-case { background: #fff; border-radius: 12px; overflow: hidden; scroll-margin-top: 24px; transition: translate .4s var(--ease-out), box-shadow .4s ease; }
+.a-case:hover { translate: 0 -3px; box-shadow: 0 24px 40px -30px rgba(6,20,13,.5); }
+.a-case .vis { aspect-ratio: 16/10; background: var(--a-night); position: relative; overflow: hidden; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; padding: clamp(20px, 3vw, 32px); color: #fff; }
+.a-case .vis::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 70% at var(--x, 30%) var(--y, 80%), #2D8A57, transparent 70%); opacity: .9; }
+.a-case .vis > * { position: relative; z-index: 2; }
+.a-case .vis .cap { position: absolute; top: clamp(18px, 2.6vw, 28px); left: clamp(20px, 3vw, 32px); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+.a-case .vis .big { font-family: var(--font-d); font-weight: 340; font-variation-settings: "opsz" 144; font-size: clamp(64px, 9vw, 128px); letter-spacing: -.04em; line-height: .85; font-variant-numeric: lining-nums; }
+.a-case .vis.photo { aspect-ratio: 1 / 1; }
+.a-case .vis.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 32%; z-index: 0; transform: scale(1.1); transition: scale 1.2s var(--ease-out); }
+.a-case .vis.photo::before { z-index: 1; opacity: 1; background: linear-gradient(180deg, rgba(6,20,13,.35) 0%, rgba(6,20,13,0) 30%, rgba(6,20,13,0) 45%, rgba(6,20,13,.88) 100%); }
+.a-case:hover .vis.photo img { scale: 1.04; }
+.ring { position: relative; width: clamp(96px, 12vw, 132px); aspect-ratio: 1; display: grid; place-items: center; text-align: center; }
+.ring svg { position: absolute; inset: 0; transform: rotate(-90deg); }
+.ring circle { fill: none; stroke-width: 7; }
+.ring .trk { stroke: rgba(255,255,255,.14); }
+.ring .val { stroke: var(--a-accent-soft); stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; transition: stroke-dashoffset 1.8s var(--ease-out) .2s; }
+.ring.in .val { stroke-dashoffset: 10; }
+.ring b { display: block; font-family: var(--font-d); font-weight: 380; font-size: clamp(24px, 2.6vw, 32px); line-height: 1; }
+.ring small { display: block; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-top: 4px; }
+.a-case .body { padding: 22px 24px 26px; display: grid; gap: 8px; }
+.a-case .body small { color: var(--a-accent); font-size: 12px; letter-spacing: .02em; }
+.a-case .body h3 { font-family: var(--font-d); font-weight: 380; font-variation-settings: "opsz" 72; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.1; letter-spacing: -.018em; }
+.a-case .body p { color: #4B514B; font-size: 15.5px; line-height: 1.55; max-width: 58ch; }
 @media (max-width: 860px) { .a-cases { grid-template-columns: 1fr; } .a-cases .left { position: static; } }
 
-/* Quotes */
-.a-quotes { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; padding-bottom: clamp(80px, 10vw, 140px); }
-.a-quote { background: #fff; border-radius: 10px; padding: clamp(22px, 3vw, 36px); display: grid; gap: 40px; color: var(--a-mute); margin: 0; }
-.a-quote p { font-size: clamp(20px, 2vw, 26px); line-height: 1.25; letter-spacing: -.02em; color: #A3A9A2; }
-@media (max-width: 760px) { .a-quotes { grid-template-columns: 1fr; } }
-.a-quotes[hidden] { display: none; }
+/* ============ ICC ============ */
+.a-icc-band { background: #E1E5DE; }
+.a-icc { padding-block: clamp(80px, 10vw, 130px); display: grid; grid-template-columns: minmax(0,5fr) minmax(0,6fr); gap: clamp(32px, 7vw, 120px); align-items: center; }
+.a-icc .seal { background: var(--a-night); color: #fff; border-radius: 12px; padding: clamp(24px, 3vw, 36px); position: relative; overflow: hidden; display: grid; gap: 80px; min-height: 380px; align-content: space-between; }
+.a-icc .seal::before { content: ""; position: absolute; width: 140%; height: 60%; left: -20%; bottom: -30%; background: radial-gradient(closest-side, #2D8A57, transparent); filter: blur(40px); }
+.a-icc .seal > * { position: relative; }
+.a-icc .seal .yr { font-family: var(--font-d); font-weight: 330; font-variation-settings: "opsz" 144; font-size: clamp(72px, 9.5vw, 132px); letter-spacing: -.04em; line-height: .86; }
+.a-icc .seal .yr em { font-style: italic; color: var(--a-accent-soft); }
+.a-icc .seal small { color: rgba(255,255,255,.7); font-size: 13px; display: block; margin-top: 34px; line-height: 1.45; max-width: 40ch; }
+.a-icc .txt { display: grid; gap: 22px; }
+.a-icc .txt > p { color: #4B514B; font-size: 17px; line-height: 1.55; max-width: 56ch; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; }
+.facts span { display: inline-flex; align-items: center; gap: 8px; background: #F2F4F0; border-radius: 999px; padding: 9px 14px 9px 10px; font-size: 14px; }
+.facts svg { width: 16px; height: 16px; color: var(--a-accent); }
+@media (max-width: 860px) { .a-icc { grid-template-columns: 1fr; } .a-icc .seal { min-height: 0; gap: 48px; } }
 
-/* Footer CTA */
-.a-footer-shell { padding: 0 8px 8px; }
-.a-footer { background: var(--a-night); color: #fff; border-radius: 10px; position: relative; overflow: hidden; padding-block: clamp(64px, 9vw, 120px) 32px; }
+/* ============ How I work ============ */
+.a-how { padding-block: clamp(80px, 10vw, 140px); }
+.a-how-head { display: grid; gap: 22px; max-width: 760px; margin-bottom: clamp(40px, 5vw, 64px); }
+.a-ways { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; }
+.a-way { background: #fff; border-radius: 12px; padding: 24px 24px 22px; display: grid; gap: 18px; align-content: start; grid-template-rows: auto auto 1fr auto; transition: translate .4s var(--ease-out), box-shadow .4s ease; }
+.a-way:hover { translate: 0 -4px; box-shadow: 0 22px 36px -26px rgba(6,20,13,.5); }
+.a-way:hover .ico-chip { background: var(--a-accent); color: #fff; }
+.a-way h3 { font-family: var(--font-d); font-weight: 400; font-variation-settings: "opsz" 48; font-size: 24px; line-height: 1.12; letter-spacing: -.015em; margin-top: 18px; }
+.a-way p { color: #4B514B; font-size: 15px; line-height: 1.55; }
+.a-way .proof { margin-top: 6px; }
+@media (max-width: 1080px) { .a-ways { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 600px) { .a-ways { grid-template-columns: 1fr; } }
+
+/* ============ Story ============ */
+.a-story { padding-block: clamp(80px, 10vw, 140px); display: grid; grid-template-columns: minmax(0,5fr) minmax(0,6fr); gap: clamp(32px, 7vw, 120px); border-top: 1px solid var(--a-line); }
+.a-story .left { position: sticky; top: 88px; align-self: start; display: grid; gap: 20px; align-content: start; }
+.a-portrait { position: relative; margin: 10px 0 0; border-radius: 12px; overflow: hidden; aspect-ratio: 4 / 5; max-width: 380px; background: var(--a-card); }
+.a-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; transform: scale(1.12); }
+.a-beats { display: grid; border-top: 1px solid var(--a-line); }
+.a-beat { display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 20px; padding: 26px 0; border-bottom: 1px solid var(--a-line); position: relative; }
+.a-beat span { color: var(--a-accent); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-variant-numeric: tabular-nums; padding-top: 6px; }
+.a-beat p { font-size: clamp(18px, 1.7vw, 21px); line-height: 1.45; letter-spacing: -.005em; color: #2A302B; }
+.a-beat:first-child p::first-letter { font-family: var(--font-d); font-variation-settings: "opsz" 144; float: left; font-size: 3.4em; line-height: .82; padding: 6px 6px 0 0; color: var(--a-accent); }
+.a-beat::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: var(--a-accent); transform: scaleX(0); transform-origin: left; transition: transform 1.4s var(--ease-out) .15s; }
+.a-beat.in::after { transform: scaleX(1); }
+@media (max-width: 860px) { .a-story { grid-template-columns: 1fr; } .a-story .left { position: static; } .a-portrait { max-width: 320px; } .a-beat { grid-template-columns: 1fr; gap: 6px; } }
+
+/* ============ Experience ============ */
+.a-exp { padding-block: clamp(72px, 9vw, 120px); }
+.a-exp-head { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 22px clamp(32px, 6vw, 96px); align-items: end; margin-bottom: clamp(36px, 5vw, 56px); }
+.a-exp-head .label { grid-column: 1 / -1; }
+.a-tl { --span: 38; }
+.a-tl-axis { display: grid; grid-template-columns: minmax(0, 34%) minmax(0, 1fr) 78px; gap: 16px; font-size: 12px; color: var(--a-mute); font-variant-numeric: tabular-nums; padding-bottom: 8px; }
+.a-tl-axis .ticks { position: relative; height: 16px; }
+.a-tl-axis .ticks span { position: absolute; transform: translateX(-50%); }
+.a-tl h3 { font-size: 12px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--a-accent); padding: 26px 0 10px; border-bottom: 1px solid var(--a-line); }
+.a-tl ul { list-style: none; margin: 0; padding: 0; }
+.a-tl li { display: grid; grid-template-columns: minmax(0, 34%) minmax(0, 1fr) 78px; gap: 16px; align-items: center; padding: 11px 0; border-bottom: 1px solid #E3E7E0; transition: background .3s ease; }
+.a-tl li:hover { background: #F7F8F5; }
+.a-tl .t { display: grid; gap: 2px; font-size: 14.5px; line-height: 1.3; }
+.a-tl .t b { font-weight: 500; }
+.a-tl .t i { font-style: normal; color: var(--a-mute); font-size: 13px; }
+.a-tl .track { position: relative; height: 12px; border-radius: 6px; background-image: linear-gradient(90deg, transparent calc(1/38*100% - 1px), #D9DED6 calc(1/38*100% - 1px), #D9DED6 calc(1/38*100%), transparent calc(1/38*100%)), linear-gradient(90deg, transparent calc(11/38*100% - 1px), #D9DED6 calc(11/38*100% - 1px), #D9DED6 calc(11/38*100%), transparent calc(11/38*100%)), linear-gradient(90deg, transparent calc(21/38*100% - 1px), #D9DED6 calc(21/38*100% - 1px), #D9DED6 calc(21/38*100%), transparent calc(21/38*100%)), linear-gradient(90deg, transparent calc(31/38*100% - 1px), #D9DED6 calc(31/38*100% - 1px), #D9DED6 calc(31/38*100%), transparent calc(31/38*100%)); }
+.a-tl .bar { position: absolute; top: 0; bottom: 0; left: calc(var(--s) / var(--span) * 100%); width: calc((var(--e) - var(--s)) / var(--span) * 100%); min-width: 8px; border-radius: 6px; background: var(--a-accent); transform: scaleX(0); transform-origin: left; transition: transform 1.2s var(--ease-out) calc(var(--i, 0) * 60ms); }
+.a-tl .bar.soft { background: #9CC9AF; }
+.a-tl .bar.two { background: linear-gradient(90deg, #9CC9AF 0 calc(var(--m) * 100%), var(--a-accent) calc(var(--m) * 100%) 100%); }
+.a-tl .bar.now::after { content: ""; position: absolute; right: -3px; top: 50%; width: 6px; height: 6px; margin-top: -3px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 2px var(--a-accent); }
+.a-tl.in .bar { transform: none; }
+.a-tl .y { font-size: 13px; color: var(--a-mute); font-variant-numeric: tabular-nums; text-align: right; }
+.a-tl-key { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 16px; font-size: 13px; color: var(--a-mute); }
+.a-tl-key span { display: inline-flex; align-items: center; gap: 8px; }
+.a-tl-key i { width: 18px; height: 8px; border-radius: 4px; background: var(--a-accent); }
+.a-tl-key i.soft { background: #9CC9AF; }
+.a-exp-more { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 16px clamp(32px, 6vw, 96px); margin-top: clamp(36px, 5vw, 56px); align-items: start; }
+.a-more-col { background: var(--a-bg); border-radius: 12px; padding: 22px 24px 24px; display: grid; gap: 12px; align-content: start; }
+.a-more-col h3 { font-size: 12px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--a-accent); }
+.a-more-col > p { color: var(--a-mute); font-size: 15px; line-height: 1.5; max-width: 46ch; }
+.a-more { margin-top: 6px; }
+.a-more summary { list-style: none; }
+.a-more-col .btn-outline { --hover: var(--a-white); }
+.a-more summary::-webkit-details-marker { display: none; }
+.a-more .plus { transition: transform .4s var(--ease-out); }
+.a-more[open] .plus { transform: rotate(45deg); }
+.a-jobs { list-style: none; margin: 18px 0 0; padding: 0; border-top: 1px solid var(--a-line); }
+.a-job { display: grid; grid-template-columns: 96px minmax(0,1fr); gap: 18px; padding: 20px 0; border-bottom: 1px solid var(--a-line); }
+.a-job .yr { color: var(--a-accent); font-size: 13px; font-variant-numeric: tabular-nums; padding-top: 4px; }
+.a-job h4 { font-size: 17px; font-weight: 500; margin: 0; }
+.a-job .org { font-size: 15px; color: #4B514B; margin-top: 2px; }
+.a-job .d2 { color: var(--a-mute); font-size: 15px; line-height: 1.5; margin-top: 8px; max-width: 60ch; }
+.a-edu { background: var(--a-bg); border-radius: 12px; padding: 22px 24px 24px; display: grid; gap: 16px; }
+.a-edu h3 { font-size: 12px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--a-accent); }
+.a-edu ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.a-edu li { display: grid; gap: 3px; font-size: 15px; line-height: 1.35; }
+.a-edu li span { color: var(--a-mute); font-size: 13px; }
+@media (max-width: 860px) {
+  .a-exp-head, .a-exp-more { grid-template-columns: 1fr; }
+  .a-tl-axis { grid-template-columns: minmax(0, 1fr); gap: 0; } .a-tl-axis > span:first-child, .a-tl-axis > span:last-child { display: none; }
+  .a-tl li { grid-template-columns: minmax(0, 1fr) auto; gap: 8px 12px; }
+  .a-tl .t { grid-column: 1; } .a-tl .y { grid-column: 2; grid-row: 1; align-self: start; }
+  .a-tl .track { grid-column: 1 / -1; }
+  .a-job { grid-template-columns: 1fr; gap: 4px; }
+}
+
+/* ============ Quotes (hidden until real quotes arrive) ============ */
+.a-quotes { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; padding-bottom: clamp(80px, 10vw, 140px); }
+.a-quote { background: #fff; border-radius: 12px; padding: clamp(22px, 3vw, 36px); display: grid; gap: 40px; color: var(--a-mute); margin: 0; }
+.a-quote p { font-family: var(--font-d); font-size: clamp(22px, 2.2vw, 28px); line-height: 1.25; color: var(--a-ink); }
+.a-quotes[hidden] { display: none; }
+@media (max-width: 760px) { .a-quotes { grid-template-columns: 1fr; } }
+
+/* ============ Footer CTA ============ */
+.a-footer-shell { padding: 8px; }
+.a-footer { background: var(--a-night); color: #fff; border-radius: 12px; position: relative; overflow: hidden; padding-block: clamp(64px, 9vw, 120px) 32px; }
 .a-footer::before { content: ""; position: absolute; width: 90%; height: 90%; right: -25%; top: -30%; background: radial-gradient(closest-side, #23794A, transparent); filter: blur(50px); }
-.a-footer .wrap { position: relative; display: grid; gap: 48px; }
-.a-footer h2 { font-size: clamp(44px, 8vw, 116px); line-height: .94; letter-spacing: -.045em; max-width: 12ch; }
-.a-footer p.lead { color: rgba(255,255,255,.72); font-size: clamp(17px, 1.7vw, 21px); line-height: 1.45; max-width: 44ch; margin-top: -24px; }
-.a-footer .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-.a-footer .btn-a { background: #fff; color: var(--a-ink); font-size: 15px; }
-.a-footer .btn-a.ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.3); padding: 4px 18px 4px 4px; }
-.a-footer .btn-a.ghost i { background: rgba(255,255,255,.12); }
-.a-footer button.btn-a { font: inherit; font-size: 15px; cursor: pointer; }
-.a-footer .btn-a svg { width: 14px; height: 14px; }
+.a-footer .wrap { position: relative; display: grid; gap: clamp(48px, 6vw, 72px); }
+.a-cta { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px clamp(32px, 6vw, 96px); align-items: end; }
+.a-cta .main { display: grid; gap: 26px; }
+.a-footer h2 { font-family: var(--font-d); font-weight: 340; font-variation-settings: "opsz" 144; font-size: clamp(56px, 9vw, 136px); line-height: .9; letter-spacing: -.035em; }
+.a-footer h2 em { color: var(--a-accent-soft); }
+.a-footer .lead { color: rgba(255,255,255,.75); max-width: 46ch; }
+.a-footer .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.a-footer .who { display: flex; align-items: center; gap: 14px; font-size: 15px; }
+.a-footer .who img { width: 56px; height: 56px; border-radius: 50%; border: 2px solid rgba(255,255,255,.25); }
+.a-footer .who small { display: block; color: rgba(255,255,255,.6); font-size: 13px; margin-top: 2px; }
+.a-topics { display: grid; gap: 8px; }
+.a-topics > p { font-size: 12px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--a-accent-soft); margin-bottom: 6px; }
+.topic { display: flex; align-items: center; gap: 14px; padding: 12px 16px 12px 12px; border-radius: 14px; background: rgba(255,255,255,.04); box-shadow: inset 0 0 0 1px rgba(255,255,255,.1); color: #fff; text-decoration: none; font-size: 16px; transition: background .35s ease, box-shadow .35s ease, translate .35s var(--ease-out); }
+.topic .m { width: 38px; height: 38px; border-radius: 10px; background: rgba(149,213,178,.12); color: var(--a-accent-soft); display: grid; place-items: center; flex: none; transition: background .35s ease, color .35s ease; }
+.topic .m svg { width: 18px; height: 18px; }
+.topic .go { margin-left: auto; width: 16px; height: 16px; opacity: .45; transition: transform .45s var(--ease-out), opacity .3s ease; }
+.topic:hover { background: rgba(255,255,255,.08); box-shadow: inset 0 0 0 1px rgba(149,213,178,.5); translate: 4px 0; }
+.topic:hover .m { background: var(--a-accent-soft); color: var(--a-night); }
+.topic:hover .go { transform: translateX(3px); opacity: 1; }
+.a-footer .fine { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(255,255,255,.12); padding-top: 20px; color: rgba(255,255,255,.55); font-size: 13px; }
 .a-footer .fine a { text-decoration: none; }
 .a-footer .fine a:hover { color: #fff; text-decoration: underline; }
-.a-footer .fine { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(255,255,255,.12); padding-top: 20px; color: rgba(255,255,255,.55); font-size: 13px; }
+@media (max-width: 860px) { .a-cta { grid-template-columns: 1fr; } }
 
-/* Floating section nav (slides in after the hero) */
-.a-mininav { position: fixed; top: calc(12px + env(safe-area-inset-top, 0px)); left: 50%; z-index: 50; transform: translate(-50%, -160%); transition: transform .6s var(--ease-out); display: flex; align-items: center; gap: 22px; padding: 6px 6px 6px 14px; border-radius: 999px; background: rgba(6,20,13,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); color: #fff; font-size: 13px; white-space: nowrap; box-shadow: 0 12px 30px -16px rgba(6,20,13,.6); }
+/* ============ Floating section nav ============ */
+.a-mininav { position: fixed; top: calc(12px + env(safe-area-inset-top, 0px)); left: 50%; z-index: 50; transform: translate(-50%, -160%); transition: transform .6s var(--ease-out); display: flex; align-items: center; gap: 22px; padding: 6px 6px 6px 14px; border-radius: 999px; background: rgba(6,20,13,.84); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); color: #fff; font-size: 13px; white-space: nowrap; box-shadow: 0 12px 30px -16px rgba(6,20,13,.6); }
 .a-mininav.show, .a-mininav:focus-within { transform: translate(-50%, 0); }
 .a-mininav a { text-decoration: none; }
 .a-mininav .mark { display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 14px; }
 .a-mininav .mark i { width: 20px; height: 11px; border: 2px solid var(--a-accent-soft); border-radius: 8px; display: inline-block; }
 .a-mininav .links { display: flex; gap: 18px; }
-.a-mininav .links a { color: rgba(255,255,255,.7); transition: color .25s; }
+.a-mininav .links a { color: rgba(255,255,255,.68); transition: color .25s; position: relative; }
+.a-mininav .links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -5px; height: 1px; background: var(--a-accent-soft); transform: scaleX(0); transition: transform .4s var(--ease-out); }
 .a-mininav .links a:hover, .a-mininav .links a.on { color: #fff; }
-.a-mininav .menu { background: var(--a-accent); padding: 6px 14px; border-radius: 999px; transition: background .25s; }
+.a-mininav .links a.on::after { transform: scaleX(1); }
+.a-mininav .menu { display: inline-flex; align-items: center; gap: 8px; background: var(--a-accent); padding: 7px 10px 7px 14px; border-radius: 999px; transition: background .25s; }
+.a-mininav .menu svg { width: 14px; height: 14px; }
 .a-mininav .menu:hover { background: var(--a-accent-hi); }
-@media (max-width: 680px) { .a-mininav .links { display: none; } }
+@media (max-width: 760px) { .a-mininav .links { display: none; } }
 main section[id], #contact { scroll-margin-top: 80px; }
 
-/* Story portrait */
-.a-story .left { position: sticky; top: 88px; align-self: start; }
-.a-portrait { position: relative; margin: 10px 0 0; border-radius: 10px; overflow: hidden; aspect-ratio: 4 / 5; max-width: 380px; background: var(--a-card); }
-.a-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; transform: scale(1.12); }
-@media (max-width: 860px) { .a-story .left { position: static; } .a-portrait { max-width: 320px; } }
-
-/* Photo case card */
-.a-case .vis.photo { aspect-ratio: 1 / 1; }
-.a-case .vis.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 32%; z-index: 0; transform: scale(1.1); transition: scale 1.2s var(--ease-out); }
-.a-case .vis.photo::before { z-index: 1; opacity: 1; background: linear-gradient(180deg, rgba(6,20,13,0) 45%, rgba(6,20,13,.88) 100%); }
-.a-case .vis span { z-index: 2; }
-.a-case:hover .vis.photo img { scale: 1.04; }
-
-/* Hover states */
-.a-card { transition: background .35s ease, translate .35s var(--ease-out); }
-.a-card:hover { background: #fff; translate: 0 -3px; }
-.a-stat { transition: translate .35s var(--ease-out), box-shadow .35s ease; }
-.a-stat:hover { translate: 0 -3px; box-shadow: 0 14px 30px -20px rgba(6,20,13,.45); }
-.a-roles li { transition: background .25s ease; }
-.a-roles li:hover { background: #fff; }
-.a-index .meta, .a-index .thumb { transition: background .3s ease, translate .35s var(--ease-out); }
-.a-index a:hover .meta, .a-index a.on .meta { background: #fff; }
-.a-index a.on .meta { translate: 6px 0; }
-.a-index a.on .thumb { background: linear-gradient(135deg, var(--a-accent-hi), #06140D); }
-.a-case { transition: translate .4s var(--ease-out); }
-.a-case:hover { translate: 0 -3px; }
-.a-marquee li { transition: color .3s ease; }
-.a-marquee:hover ul { animation-play-state: paused; }
-.a-marquee li:hover { color: #fff; }
-
-/* Story beats: a green rule draws under each one as you reach it */
-.a-beat, .a-job { position: relative; }
-.a-beat::after, .a-job::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: var(--a-accent); transform: scaleX(0); transform-origin: left; transition: transform 1.4s var(--ease-out) .15s; }
-.a-beat.in::after, .a-job.in::after { transform: scaleX(1); }
-
-/* Headings that rise in word by word */
-.split .wd { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .1em; margin-bottom: -.1em; }
-.split .wd > span { display: inline-block; }
-
-/* Footer signature */
-.a-footer .who { display: flex; align-items: center; gap: 14px; font-size: 15px; }
-.a-footer .who img { width: 56px; height: 56px; border-radius: 50%; border: 2px solid rgba(255,255,255,.25); }
-.a-footer .who small { display: block; color: rgba(255,255,255,.6); font-size: 13px; margin-top: 2px; }
-
-/* Experience */
-.a-exp { padding-block: clamp(80px, 10vw, 140px); display: grid; grid-template-columns: minmax(0,5fr) minmax(0,6fr); gap: clamp(32px, 7vw, 120px); }
-.a-exp .left { position: sticky; top: 88px; align-self: start; display: grid; gap: 18px; }
-.a-exp .left > p { color: var(--a-mute); font-size: 16px; line-height: 1.5; }
-.a-edu { margin-top: 12px; background: var(--a-card); border-radius: 10px; padding: 20px 22px 22px; display: grid; gap: 14px; max-width: 440px; }
-.a-edu h3 { font-size: 13px; font-weight: 500; color: var(--a-accent); }
-.a-edu ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
-.a-edu li { display: grid; gap: 3px; font-size: 15px; line-height: 1.35; }
-.a-edu li span { color: var(--a-mute); font-size: 13px; }
-.a-jobs { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--a-line); }
-.a-job { display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--a-line); }
-.a-job .yr { color: var(--a-accent); font-size: 13px; font-variant-numeric: tabular-nums; padding-top: 5px; }
-.a-job h3 { font-size: clamp(20px, 2vw, 24px); letter-spacing: -.015em; line-height: 1.2; }
-.a-job .org { font-size: 15px; font-weight: 500; color: #4B514B; margin-top: 4px; }
-.a-job .d { color: var(--a-mute); font-size: 15px; line-height: 1.5; margin-top: 10px; max-width: 58ch; }
-@media (max-width: 860px) { .a-exp { grid-template-columns: 1fr; } .a-exp .left { position: static; } .a-job { grid-template-columns: 1fr; gap: 6px; } }
-
-/* Phones: keep the grain and glow still to save battery and keep scrolling smooth */
-@media (max-width: 860px) { .a-glow b, .grain { animation: none; } }
-
-/* Reveal (only when JS + motion are on) */
+/* ============ Reveal ============ */
 .js .rv { opacity: 0; transform: translateY(24px); }
-
+@media (max-width: 860px) { .a-glow b, .grain { animation: none; } }
 @media (prefers-reduced-motion: reduce) {
   .a-glow b, .a-marquee ul, .grain, .a-scrollhint::after { animation: none !important; }
   .js .rv { opacity: 1; transform: none; }
-  .a-mininav, .a-beat::after, .a-job::after, .a-card, .a-stat, .a-case, .a-case .vis.photo img { transition: none; }
+  .a-mininav, .a-beat::after, .a-stat, .a-case, .a-way, .a-prob, .a-case .vis.photo img, .btn, .btn::before, .btn .ico svg, .a-tl .bar, .ring .val, .topic { transition: none !important; }
 }
 
-/* Print: a clean, plain copy for search committees who print candidate packets */
+/* ============ Print ============ */
 @media print {
   @page { margin: 16mm; }
-  .grain, .skip, .a-mininav, .a-nav, .a-stage-wrap, .a-shade, .a-glow, .a-scrim, .a-scrollhint, .a-marquee, .a-index, .a-footer .row, .a-case .vis, .a-portrait, .a-services .btn-a, .a-footer .who img { display: none !important; }
+  .grain, .skip, .a-mininav, .a-nav, .a-stage-wrap, .a-shade, .a-glow, .a-scrim, .a-scrollhint, .a-marquee, .a-index, .a-footer .row, .a-topics, .a-help-cta, .a-case .vis, .a-portrait, .a-footer .who img, .ico-chip, .a-tl .track, .a-tl-axis, .a-tl-key, .a-more summary { display: none !important; }
+  .a-more-col > p { display: none; }
   html, body { background: #fff !important; color: #000; }
   .pin-spacer { padding: 0 !important; height: auto !important; width: auto !important; }
   .a-hero-shell { position: static !important; transform: none !important; top: auto !important; left: auto !important; width: auto !important; height: auto !important; max-width: none !important; padding: 0; }
@@ -310,18 +414,21 @@ main section[id], #contact { scroll-margin-top: 80px; }
   .a-hero-text .eyebrow { color: #333 !important; }
   .js .rv, .split .wd > span, .a-hero-text h1 .line > span { opacity: 1 !important; transform: none !important; }
   .a-statement p.big .w { color: #000 !important; }
-  .a-statement { padding-block: 8px 20px; } .a-statement .inner { margin: 0; max-width: none; } .a-statement p.big { font-size: 20px; text-indent: 0; }
-  .a-services, .a-icc, .a-story, .a-cases, .a-exp { grid-template-columns: 1fr; padding-block: 18px; gap: 14px; }
-  .a-services .left, .a-cases .left, .a-story .left, .a-exp .left { position: static; max-width: none; }
-  .a-icc-band, .a-card, .a-stat, .a-case, .a-edu, .a-roles li { background: none !important; }
-  .a-roles { background: none; gap: 0; } .a-roles li { padding: 6px 0; border-bottom: 1px solid #ddd; }
-  h2, h3, .tag { break-after: avoid; }
-  .a-icc .seal { background: none; color: #000; min-height: 0; padding: 0; gap: 6px; } .a-icc .seal::before { display: none; } .a-icc .seal .yr { font-size: 28px; } .a-icc .seal small, .a-icc .seal .tag { color: #333 !important; }
-  .a-stats { grid-template-columns: repeat(4, 1fr); } .a-stat { padding: 8px 0; gap: 6px; } .a-stat .n { font-size: 26px; } .a-stat::after { display: none; }
-  .a-card { gap: 6px; padding: 8px 0; }
-  .a-card, .a-beat, .a-job, .a-case, .a-stat, .a-roles li { break-inside: avoid; }
+  .a-statement { padding-block: 8px 20px; } .a-statement .inner { margin: 0; max-width: none; } .a-statement p.big { font-size: 22px; text-indent: 0; }
+  .a-panel-shell { padding: 0; } .a-panel, .a-icc-band, .a-stat, .a-case, .a-way, .a-edu, .a-more-col { background: none !important; box-shadow: none !important; }
+  .a-help, .a-cases, .a-icc, .a-how, .a-story, .a-exp { padding-block: 18px; }
+  .a-help-head, .a-prob, .a-cases, .a-icc, .a-story, .a-exp-head, .a-exp-more, .a-cta { grid-template-columns: 1fr; gap: 10px; }
+  .a-cases .left, .a-story .left { position: static; }
+  h2.d, .a-footer h2 { font-size: 30px; }
+  .a-icc .seal { background: none; color: #000; min-height: 0; padding: 0; gap: 6px; } .a-icc .seal::before { display: none; } .a-icc .seal .yr { font-size: 30px; } .a-icc .seal small, .a-icc .seal .tag { color: #333 !important; }
+  .a-stats { grid-template-columns: repeat(4, 1fr); } .a-stat { padding: 8px 0; gap: 6px; } .a-stat .n { font-size: 28px; } .a-stat::after { display: none; }
+  .a-ways { grid-template-columns: 1fr 1fr; } .a-way { padding: 8px 0; }
+  .a-tl li { grid-template-columns: 1fr auto; }
+  .a-more > *:not(summary) { display: block !important; }
+  .a-prob, .a-beat, .a-job, .a-case, .a-stat, .a-way, .a-tl li, .a-icc .seal, .a-cta .main, .a-edu { break-inside: avoid; }
+  h2, h3, .label { break-after: avoid; }
   .a-footer-shell { padding: 0; } .a-footer { background: none; color: #000; padding-block: 18px 0; } .a-footer::before { display: none; }
-  .a-footer h2 { font-size: 32px; } .a-footer p.lead, .a-footer .who small, .a-footer .fine { color: #333; margin-top: 0; } .a-footer .fine { border-color: #ccc; }
+  .a-footer .lead, .a-footer .who small, .a-footer .fine { color: #333; } .a-footer .fine { border-color: #ccc; }
   a { text-decoration: none; }
 }
 </style>
@@ -330,11 +437,31 @@ main section[id], #contact { scroll-margin-top: 80px; }
 <body>
 <a class="skip" href="#about">Skip to content</a>
 <div class="grain" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></symbol>
+  <symbol id="i-arrow-ur" viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 16 16"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8"/><path d="M10.5 3.6V3.3a1.8 1.8 0 0 0-1.8-1.8H3.3a1.8 1.8 0 0 0-1.8 1.8v5.4a1.8 1.8 0 0 0 1.8 1.8h.3"/></symbol>
+  <symbol id="i-check" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.8"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.8 6.6 12 12.6l8.2-6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15.5" r="4.5"/><path d="M11.2 12.3 20 3.5M16.5 7l2.5 2.5M14 9.5l2 2"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v4c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 10v4c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6v-4M5 14v4c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6v-4"/></symbol>
+  <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 19.5c.7-3.4 3.1-5.2 6-5.2s5.3 1.8 6 5.2"/><circle cx="16.8" cy="9" r="2.6"/><path d="M15.6 14.1c2.6-.3 4.8 1.1 5.4 4.4"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H7a1.5 1.5 0 0 0-1.5 1.5v15A1.5 1.5 0 0 0 7 21h10a1.5 1.5 0 0 0 1.5-1.5V7.5z"/><path d="M14 3v4.5h4.5M9 14.2l2.2 2.2 4-4.4"/></symbol>
+  <symbol id="i-columns" viewBox="0 0 24 24"><path d="M3.5 9.5 12 4l8.5 5.5zM5.5 10v7M10 10v7M14 10v7M18.5 10v7M4 17.5h16M3 20.5h18"/></symbol>
+  <symbol id="i-house" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 19z"/><path d="M9.5 20.5V14h5v6.5"/></symbol>
+  <symbol id="i-venn" viewBox="0 0 24 24"><circle cx="9" cy="12" r="5.5"/><circle cx="15" cy="12" r="5.5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z"/></symbol>
+  <symbol id="i-network" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18" r="2.2"/><path d="M10.9 6.9 6.1 16M13.1 6.9l4.8 9.1M7.2 18h9.6"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.8z"/></symbol>
+</svg>
 
 <nav class="a-mininav" id="mininav" aria-label="Sections">
   <a class="mark" href="#top"><i></i>Douglas Erber</a>
-  <span class="links"><a href="#work">Work</a><a href="#icc">ICC</a><a href="#story">Story</a><a href="#results">Results</a><a href="#experience">Experience</a></span>
-  <a class="menu" href="#contact">Contact</a>
+  <span class="links"><a href="#work">How I help</a><a href="#results">Results</a><a href="#icc">ICC</a><a href="#story">Story</a><a href="#experience">Experience</a></span>
+  <a class="menu" href="#contact">Contact<svg class="i" aria-hidden="true"><use href="#i-mail"/></svg></a>
 </nav>
 
 <main>
@@ -370,6 +497,7 @@ main section[id], #contact { scroll-margin-top: 80px; }
 
   <section class="wrap a-statement" id="about" tabindex="-1" aria-label="Mission">
     <div class="inner">
+      <span class="label rv">In my words</span>
       <p class="big" id="mission">For more than 30 years, I’ve helped nonprofit organizations thrive through effective fundraising, donor and member relations, board engagement, strategic leadership, and sound financial and operational management.</p>
       <p class="sub rv">Executive director and senior nonprofit leader in Los Angeles and Long Beach. Open to considering nonprofit board service opportunities aligned with my experience and interests.</p>
     </div>
@@ -384,50 +512,110 @@ main section[id], #contact { scroll-margin-top: 80px; }
     </div>
   </section>
 
-  <section class="wrap a-services" id="work">
-    <div class="left">
-      <span class="tag">What boards bring me in for</span>
-      <h2 class="split">Money in, members up, house in order.</h2>
-      <p>I've been the first-ever executive director twice. I know what a board needs from its ED in year one, and what it takes to leave an organization stronger than I found it.</p>
-      <a class="btn-a" href="mailto:dougerber@hotmail.com?subject=Executive%20director%20conversation"><i aria-hidden="true">→</i>Email Doug</a>
-    </div>
-    <div class="a-cards">
-      <article class="a-card rv"><span class="num">01</span><div><h3>Fundraising</h3><p>Major gifts, grants and events. A $250,000 gift from one family for the JASSC Centennial Celebration. $130,000 in unrestricted donations and grants for IDA over two years, more than its annual net revenue.</p></div></article>
-      <article class="a-card rv"><span class="num">02</span><div><h3>Membership growth</h3><p>A three-year campaign at JASSC, funded by a $150,000 capacity grant, grew corporate and individual members by 25% and held renewals at 90%.</p></div></article>
-      <article class="a-card rv"><span class="num">03</span><div><h3>Governance and finance</h3><p>Budgets, bylaws and compliance kept in order. I managed a $623,000 annual budget as President of JASSC, revised and updated IDA’s bylaws, and have brought organizations that drifted out of compliance back into line.</p></div></article>
-      <article class="a-card rv"><span class="num">04</span><div><h3>Partnerships and government</h3><p>Decades of work with state agencies, regional centers, foundations and corporate partners. Interviewed live on CNN, MSNBC and KABC.</p></div></article>
-    </div>
-  </section>
-
-  <div class="a-icc-band">
-    <section class="wrap a-icc" id="icc" aria-label="ICC Vice Chair">
-      <div class="seal rv">
-        <span class="tag" style="color:rgba(255,255,255,.7)">Governor appointed</span>
-        <div>
-          <div class="yr">2019–<br>today</div>
-          <small>Vice Chair, California State Interagency Coordinating Council on Early Intervention. Member since 2014.</small>
+  <div class="a-panel-shell">
+    <section class="a-panel" id="work" aria-labelledby="help-h">
+      <div class="wrap a-help">
+        <div class="a-help-head">
+          <span class="label">Where I help</span>
+          <h2 class="d split" id="help-h">If one of these sounds like <em>your board</em>, let’s talk.</h2>
+          <p class="lead rv">These are the situations I know best, and what I’ve done about each one.</p>
         </div>
-      </div>
-      <div class="txt">
-        <span class="tag">Early intervention</span>
-        <h2 class="split">Vice Chair of California’s council on early intervention.</h2>
-        <p>Governor Jerry Brown appointed me to the council in 2014, and I was elected Vice Chair in 2019. The ICC advises the California Department of Developmental Services on services for infants and toddlers, birth to three, who have or are at risk for a disability, and their families.</p>
-        <h3 class="a-sub">Other board and public service</h3>
-        <ul class="a-roles rv">
-          <li>Board President, Autism Partnership Foundation <span>2012–now</span></li>
-          <li>Trustee, Secretary and Treasurer, Harbor Regional Center <span>2010–17</span></li>
-          <li>Steering Committee, Japan House Los Angeles, appointed by the Consul General of Japan <span>2016–26</span></li>
-          <li>Board of Governors, Los Angeles County Economic Development Corporation <span>2003–20</span></li>
-          <li>Executive Committee and Board, National Association of Japan-America Societies <span>2002–20</span></li>
-        </ul>
+        <div class="a-probs">
+          <article class="a-prob rv">
+            <div class="q"><span class="ico-chip" aria-hidden="true"><svg class="i"><use href="#i-key"/></svg></span><h3>“We’re hiring our first executive director.”</h3></div>
+            <div class="a"><p>I’ve been the first-ever executive director twice, at the Infant Development Association of California and at Sister Cities of Long Beach. I know what a board needs from its ED in year one, and what it takes to leave an organization stronger than I found it.</p><span class="proof"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>First-ever ED, twice</span></div>
+          </article>
+          <article class="a-prob rv">
+            <div class="q"><span class="ico-chip" aria-hidden="true"><svg class="i"><use href="#i-coins"/></svg></span><h3>“Our fundraising rests on one event and a few loyal donors.”</h3></div>
+            <div class="a"><p>At the Japan America Society I ran a gala and a golf tournament that together raised more than $3 million, and secured a $250,000 gift from one family for the Centennial. At IDA I brought in $130,000 in unrestricted donations and grants over two years, more than its annual net revenue.</p><span class="proof"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>$3M+ raised</span></div>
+          </article>
+          <article class="a-prob rv">
+            <div class="q"><span class="ico-chip" aria-hidden="true"><svg class="i"><use href="#i-people"/></svg></span><h3>“Membership is flat and renewals keep slipping.”</h3></div>
+            <div class="a"><p>I secured a $150,000 capacity-building grant, then led a three-year campaign that grew corporate and individual membership by 25% and reached a 90% renewal rate, against a typical goal of 80%.</p><span class="proof"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>90% renewals</span></div>
+          </article>
+          <article class="a-prob rv">
+            <div class="q"><span class="ico-chip" aria-hidden="true"><svg class="i"><use href="#i-doc"/></svg></span><h3>“Our budget, bylaws and filings need attention.”</h3></div>
+            <div class="a"><p>That’s where I start. I managed a $623,000 annual budget at the Japan America Society, revised and updated IDA’s bylaws, and have brought organizations that drifted out of compliance back into line.</p><span class="proof"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>$623K budget managed</span></div>
+          </article>
+          <article class="a-prob rv">
+            <div class="q"><span class="ico-chip" aria-hidden="true"><svg class="i"><use href="#i-columns"/></svg></span><h3>“We need stronger ties to government and the community.”</h3></div>
+            <div class="a"><p>I’m Vice Chair of a Governor-appointed state council, with decades of work alongside state agencies, regional centers, foundations and corporate partners. I’ve also been interviewed live on CNN, MSNBC and KABC.</p><span class="proof"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>ICC Vice Chair</span></div>
+          </article>
+        </div>
+        <div class="a-help-cta">
+          <a class="btn btn-primary" href="mailto:dougerber@hotmail.com?subject=What%20our%20organization%20is%20facing"><span>Tell me what you’re facing</span><span class="ico" aria-hidden="true"><svg class="cur"><use href="#i-arrow"/></svg><svg class="nx"><use href="#i-arrow"/></svg></span></a>
+          <span class="btn-note">Opens a new email to dougerber@hotmail.com</span>
+        </div>
       </div>
     </section>
   </div>
 
-  <section class="wrap a-story" id="story" aria-label="Story">
+  <section class="wrap a-cases" id="results" aria-labelledby="results-h">
     <div class="left">
-      <span class="tag">How I got here</span>
-      <h2 class="split">From a classroom in Anjo to three decades of nonprofit leadership.</h2>
+      <span class="label">Selected results</span>
+      <h2 class="d split" id="results-h">Three results worth a <em>closer look</em>.</h2>
+      <p class="lead">Each one started with a real need, whether a disaster, a milestone to fund or a member base to grow.</p>
+      <nav class="a-index" aria-label="Results">
+        <a href="#case-relief"><span class="thumb">$1.5M</span><span class="meta"><small>Disaster relief</small><b>Japan Disaster Relief Fund</b></span></a>
+        <a href="#case-gift"><span class="thumb">$250K</span><span class="meta"><small>Major gifts</small><b>Centennial Celebration gift</b></span></a>
+        <a href="#case-members"><span class="thumb">+25%</span><span class="meta"><small>Membership</small><b>Growth and 90% retention</b></span></a>
+      </nav>
+    </div>
+    <div class="a-case-list">
+      <article class="a-case rv" id="case-relief">
+        <div class="vis" style="--x:25%;--y:85%"><span class="cap">Japan · 2011</span><span class="big">$1.5M</span></div>
+        <div class="body"><small>Leadership, fundraising and international partnerships · JASSC</small><h3>$1.5 million Japan Disaster Relief Fund</h3><p>After the devastating 2011 earthquake, tsunami and nuclear disaster in Japan, I created and managed a $1.5 million relief fund through the Japan America Society of Southern California. It supported immediate humanitarian relief and long-term recovery, and showed what individuals, businesses and communities can do together in a time of extraordinary need.</p></div>
+      </article>
+      <article class="a-case rv" id="case-gift">
+        <div class="vis photo"><img src="assets/gala-speech.jpg" width="914" height="1280" alt="Douglas Erber speaking at the Japan America Society's Centennial of Promise gala" loading="lazy" decoding="async"><span class="cap">Centennial · one family</span><span class="big">$250K</span></div>
+        <div class="body"><small>Major donor cultivation and relationship building · JASSC</small><h3>$250,000 Centennial Celebration gift</h3><p>As the Japan America Society prepared to celebrate its 100th anniversary, it needed significant support to present a meaningful, year-long Centennial Celebration. Through personal relationship building and donor cultivation, I secured a $250,000 contribution from one generous family to help make the milestone possible.</p></div>
+      </article>
+      <article class="a-case rv" id="case-members">
+        <div class="vis" style="--x:60%;--y:100%"><span class="cap">Three-year campaign</span><span class="big">+25%</span><div class="ring" aria-hidden="true"><svg viewBox="0 0 120 120"><circle class="trk" cx="60" cy="60" r="52"/><circle class="val" cx="60" cy="60" r="52" pathLength="100"/></svg><div><b>90%</b><small>renewals</small></div></div></div>
+        <div class="body"><small>Organizational sustainability and membership development · JASSC</small><h3>25% membership growth, 90% retention</h3><p>To build a strong, sustainable membership base, I secured a $150,000, three-year capacity-building grant from the Japan Foundation’s Center for Global Partnership, then led a membership campaign that grew corporate and individual membership by 25% and reached a 90% renewal rate.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <div class="a-icc-band">
+    <section class="wrap a-icc" id="icc" aria-labelledby="icc-h">
+      <div class="seal rv">
+        <span class="label light">Governor appointed</span>
+        <div>
+          <div class="yr">2019–<br><em>today</em></div>
+          <small>Vice Chair, California State Interagency Coordinating Council on Early Intervention. Member since 2014.</small>
+        </div>
+      </div>
+      <div class="txt">
+        <span class="label">Public service</span>
+        <h2 class="d split" id="icc-h">Vice Chair of California’s council on <em>early intervention</em>.</h2>
+        <p>Governor Jerry Brown appointed me to the council in 2014, and I was elected Vice Chair in 2019. The ICC advises the California Department of Developmental Services on services for infants and toddlers, birth to three, who have or are at risk for a disability, and their families.</p>
+        <div class="facts rv">
+          <span><svg class="i" aria-hidden="true"><use href="#i-cal"/></svg>Appointed 2014 by Governor Brown</span>
+          <span><svg class="i" aria-hidden="true"><use href="#i-star"/></svg>Elected Vice Chair 2019</span>
+          <span><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg>Birth to three, statewide</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="wrap a-how" id="how" aria-labelledby="how-h">
+    <div class="a-how-head">
+      <span class="label">How I work</span>
+      <h2 class="d split" id="how-h">What working <em>with me</em> looks like.</h2>
+    </div>
+    <div class="a-ways">
+      <article class="a-way rv"><span class="ico-chip" aria-hidden="true"><svg class="i"><use href="#i-house"/></svg></span><h3>House in order first</h3><p>Budgets, bylaws, filings and records come first. Everything a board wants to build rests on them.</p><span class="proof"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Revised and updated IDA’s bylaws</span></article>
+      <article class="a-way rv"><span class="ico-chip" aria-hidden="true"><svg class="i"><use href="#i-venn"/></svg></span><h3>Relationships before asks</h3><p>Major gifts come from people who trust you. The Centennial gift came through personal relationship building and donor cultivation.</p><span class="proof"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>$250K from one family</span></article>
+      <article class="a-way rv"><span class="ico-chip" aria-hidden="true"><svg class="i"><use href="#i-heart"/></svg></span><h3>The whole board gives</h3><p>A board that gives together asks with confidence. I’ve run a 100% board giving campaign every year for 14 years.</p><span class="proof"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>14 years at 100%</span></article>
+      <article class="a-way rv"><span class="ico-chip" aria-hidden="true"><svg class="i"><use href="#i-network"/></svg></span><h3>Bring people together</h3><p>Bringing people together and building lasting relationships is what has kept me in this work for more than three decades.</p><span class="proof"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Elected ICC Vice Chair</span></article>
+    </div>
+  </section>
+
+  <section class="wrap a-story" id="story" aria-labelledby="story-h">
+    <div class="left">
+      <span class="label">How I got here</span>
+      <h2 class="d split" id="story-h">From a classroom in Anjo to <em>three decades</em> of nonprofit leadership.</h2>
       <figure class="a-portrait reveal-img"><img src="assets/headshot.jpg" width="800" height="1120" alt="Portrait of Douglas Erber" loading="lazy" decoding="async"></figure>
     </div>
     <div class="a-beats">
@@ -438,77 +626,96 @@ main section[id], #contact { scroll-margin-top: 80px; }
     </div>
   </section>
 
-  <section class="wrap a-cases" id="results">
-    <div class="left">
-      <span class="tag">Selected results</span>
-      <h2 class="split">Three results worth a closer look.</h2>
-      <p>Each one started with a real need, whether a disaster, a milestone to fund or a member base to grow.</p>
-      <nav class="a-index" aria-label="Results">
-        <a href="#case-relief"><span class="thumb">$1.5M</span><span class="meta"><small>Disaster relief</small><b>Japan Disaster Relief Fund</b></span></a>
-        <a href="#case-gift"><span class="thumb">$250K</span><span class="meta"><small>Major gifts</small><b>Centennial Celebration gift</b></span></a>
-        <a href="#case-members"><span class="thumb">+25%</span><span class="meta"><small>Membership</small><b>Growth and 90% retention</b></span></a>
-      </nav>
-    </div>
-    <div class="a-case-list">
-      <article class="a-case rv" id="case-relief">
-        <div class="vis" style="--x:25%;--y:85%"><span>$1.5M</span></div>
-        <div class="body"><small>Leadership, fundraising and international partnerships · JASSC</small><h3>$1.5 million Japan Disaster Relief Fund</h3><p>After the devastating 2011 earthquake, tsunami and nuclear disaster in Japan, I created and managed a $1.5 million relief fund through the Japan America Society of Southern California. It supported immediate humanitarian relief and long-term recovery, and showed what individuals, businesses and communities can do together in a time of extraordinary need.</p></div>
-      </article>
-      <article class="a-case rv" id="case-gift">
-        <div class="vis photo"><img src="assets/gala-speech.jpg" width="914" height="1280" alt="Douglas Erber speaking at the Japan America Society's Centennial of Promise gala" loading="lazy" decoding="async"><span>$250K</span></div>
-        <div class="body"><small>Major donor cultivation and relationship building · JASSC</small><h3>$250,000 Centennial Celebration gift</h3><p>As the Japan America Society prepared to celebrate its 100th anniversary, it needed significant support to present a meaningful, year-long Centennial Celebration. Through personal relationship building and donor cultivation, I secured a $250,000 contribution from one generous family to help make the milestone possible.</p></div>
-      </article>
-      <article class="a-case rv" id="case-members">
-        <div class="vis" style="--x:60%;--y:100%"><span>+25%</span></div>
-        <div class="body"><small>Organizational sustainability and membership development · JASSC</small><h3>25% membership growth, 90% retention</h3><p>To build a strong, sustainable membership base, I secured a $150,000, three-year capacity-building grant from the Japan Foundation’s Center for Global Partnership, then led a membership campaign that grew corporate and individual membership by 25% and reached a 90% renewal rate.</p></div>
-      </article>
-    </div>
-  </section>
-
-  <section class="wrap a-exp" id="experience" aria-labelledby="exp-h">
-    <div class="left">
-      <span class="tag">Experience</span>
-      <h2 class="split" id="exp-h">Every role, in order.</h2>
-      <p>Most recent first, back to a classroom in Anjo.</p>
-      <div class="a-edu rv">
-        <h3>Education</h3>
-        <ul>
-          <li>B.A., Speech Communication, emphasis on Business<span>California State University, Long Beach · 1989</span></li>
-          <li>Business Administration and Management certificate<span>University of California, Irvine · 2000</span></li>
-          <li>China Business and Japan Business certificates<span>USC Marshall School of Business · 1998 and 1996</span></li>
-          <li>Total Quality Management certificate<span>California State University, Long Beach · 1992</span></li>
-        </ul>
+  <div class="a-panel-shell">
+    <section class="a-panel" id="experience" aria-labelledby="exp-h">
+      <div class="wrap a-exp">
+        <div class="a-exp-head">
+          <span class="label">Experience</span>
+          <h2 class="d split" id="exp-h">The career, <em>at a glance</em>.</h2>
+          <p class="lead rv">Twenty-seven years at one organization, rising to President, then three executive director roles, two of them first-ever, with board service running alongside.</p>
+        </div>
+        <div class="a-tl rv" id="timeline">
+          <div class="a-tl-axis" aria-hidden="true"><span></span><span class="ticks"><span style="left:calc(1/38*100%)">1990</span><span style="left:calc(11/38*100%)">2000</span><span style="left:calc(21/38*100%)">2010</span><span style="left:calc(31/38*100%)">2020</span></span><span></span></div>
+          <h3>Staff leadership</h3>
+          <ul>
+            <li><span class="t"><b>City of Anjo, Japan</b><i>English Teacher and International Coordinator</i></span><span class="track"><span class="bar" style="--s:0;--e:3;--i:0"></span></span><span class="y">1989–91</span></li>
+            <li><span class="t"><b>California State University, Long Beach</b><i>Marketing and Program Coordinator</i></span><span class="track"><span class="bar" style="--s:3;--e:5;--i:1"></span></span><span class="y">1992–93</span></li>
+            <li><span class="t"><b>Japan America Society of Southern California</b><i>President, after serving as Vice President, Acting ED and Regional Director</i></span><span class="track"><span class="bar" style="--s:4;--e:32;--i:2"></span></span><span class="y">1993–2020</span></li>
+            <li><span class="t"><b>Infant Development Association of California</b><i>First-ever Executive Director</i></span><span class="track"><span class="bar" style="--s:32;--e:36;--i:3"></span></span><span class="y">2021–24</span></li>
+            <li><span class="t"><b>California Alliance of Self-Insured Groups</b><i>Executive Director</i></span><span class="track"><span class="bar" style="--s:33;--e:37;--i:4"></span></span><span class="y">2022–25</span></li>
+            <li><span class="t"><b>Sister Cities of Long Beach</b><i>First-ever Executive Director</i></span><span class="track"><span class="bar" style="--s:36;--e:38;--i:5"></span></span><span class="y">2025–26</span></li>
+          </ul>
+          <h3>Boards and public service</h3>
+          <ul>
+            <li><span class="t"><b>National Association of Japan-America Societies</b><i>Executive Committee and Board</i></span><span class="track"><span class="bar soft" style="--s:13;--e:32;--i:6"></span></span><span class="y">2002–20</span></li>
+            <li><span class="t"><b>Los Angeles County Economic Development Corp.</b><i>Board of Governors</i></span><span class="track"><span class="bar soft" style="--s:14;--e:32;--i:7"></span></span><span class="y">2003–20</span></li>
+            <li><span class="t"><b>Harbor Regional Center</b><i>Trustee, Secretary and Treasurer</i></span><span class="track"><span class="bar soft" style="--s:21;--e:29;--i:8"></span></span><span class="y">2010–17</span></li>
+            <li><span class="t"><b>Autism Partnership Foundation</b><i>Board President</i></span><span class="track"><span class="bar soft now" style="--s:23;--e:38;--i:9"></span></span><span class="y">2012–now</span></li>
+            <li><span class="t"><b>California State ICC on Early Intervention</b><i>Member since 2014, Vice Chair since 2019</i></span><span class="track"><span class="bar two now" style="--s:25;--e:38;--m:.3846;--i:10"></span></span><span class="y">2014–now</span></li>
+            <li><span class="t"><b>Japan House Los Angeles</b><i>Steering Committee, appointed by the Consul General of Japan</i></span><span class="track"><span class="bar soft" style="--s:27;--e:38;--i:11"></span></span><span class="y">2016–26</span></li>
+          </ul>
+          <div class="a-tl-key" aria-hidden="true"><span><i></i>Staff role or office held</span><span><i class="soft"></i>Board or committee seat</span></div>
+        </div>
+        <div class="a-exp-more">
+          <div class="a-more-col rv">
+          <h3>Role by role</h3>
+          <p>What each organization does, and what I did there, most recent first.</p>
+          <details class="a-more">
+            <summary class="btn btn-outline"><span>Read the role details</span><span class="ico" aria-hidden="true"><svg class="plus"><use href="#i-plus"/></svg></span></summary>
+            <ol class="a-jobs" reversed>
+              <li class="a-job"><span class="yr">2025–26</span><div><h4>First-ever Executive Director</h4><p class="org">Sister Cities of Long Beach</p><p class="d2">Since 1963, Sister Cities of Long Beach has built people-to-people partnerships with seven cities abroad, from Yokkaichi, Japan to La Paz, Mexico.</p></div></li>
+              <li class="a-job"><span class="yr">2022–25</span><div><h4>Executive Director</h4><p class="org">California Alliance of Self-Insured Groups</p><p class="d2">A unified voice for California’s self-insured groups with the state Department of Industrial Relations and the Office of Self-Insured Programs.</p></div></li>
+              <li class="a-job"><span class="yr">2021–24</span><div><h4>First-ever Executive Director</h4><p class="org">Infant Development Association of California</p><p class="d2">Supports infants and toddlers, birth to three, who have or are at risk of a developmental disability, and their families. Secured $130,000 in unrestricted donations and grants over two years, more than the organization’s annual net revenue.</p></div></li>
+              <li class="a-job"><span class="yr">1993–2020</span><div><h4>President</h4><p class="org">Japan America Society of Southern California</p><p class="d2">Founded in 1909, with 150 corporate and 2,000 individual members and more than 30 programs a year. Led fundraising, membership, partnerships and finances with a staff of three and more than 60 volunteers. Earlier roles there included Vice President, Acting Executive Director and Regional Director.</p></div></li>
+              <li class="a-job"><span class="yr">1992–93</span><div><h4>Marketing and Program Coordinator</h4><p class="org">California State University, Long Beach</p><p class="d2">Professional development certificate programs in international business, run from the World Trade Center offices of the College of Continuing and Professional Education.</p></div></li>
+              <li class="a-job"><span class="yr">1989–91</span><div><h4>English Teacher and International Coordinator</h4><p class="org">City of Anjo, Japan</p><p class="d2">Taught English in the city’s public junior high schools and served as its International Coordinator.</p></div></li>
+            </ol>
+          </details>
+          </div>
+          <div class="a-edu rv">
+            <h3>Education</h3>
+            <ul>
+              <li>B.A., Speech Communication, emphasis on Business<span>California State University, Long Beach · 1989</span></li>
+              <li>Business Administration and Management certificate<span>University of California, Irvine · 2000</span></li>
+              <li>China Business and Japan Business certificates<span>USC Marshall School of Business · 1998 and 1996</span></li>
+              <li>Total Quality Management certificate<span>California State University, Long Beach · 1992</span></li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-    <ol class="a-jobs" reversed>
-        <li class="a-job rv"><span class="yr">2025–26</span><div><h3>First-ever Executive Director</h3><p class="org">Sister Cities of Long Beach</p><p class="d">Since 1963, Sister Cities of Long Beach has built people-to-people partnerships with seven cities abroad, from Yokkaichi, Japan to La Paz, Mexico.</p></div></li>
-        <li class="a-job rv"><span class="yr">2022–25</span><div><h3>Executive Director</h3><p class="org">California Alliance of Self-Insured Groups</p><p class="d">A unified voice for California’s self-insured groups with the state Department of Industrial Relations and the Office of Self-Insured Programs.</p></div></li>
-        <li class="a-job rv"><span class="yr">2021–24</span><div><h3>First-ever Executive Director</h3><p class="org">Infant Development Association of California</p><p class="d">Supports infants and toddlers, birth to three, who have or are at risk of a developmental disability, and their families. Secured $130,000 in unrestricted donations and grants over two years, more than the organization’s annual net revenue.</p></div></li>
-        <li class="a-job rv"><span class="yr">1993–2020</span><div><h3>President</h3><p class="org">Japan America Society of Southern California</p><p class="d">Founded in 1909, with 150 corporate and 2,000 individual members and more than 30 programs a year. Led fundraising, membership, partnerships and finances with a staff of three and more than 60 volunteers. Earlier roles there included Vice President, Acting Executive Director and Regional Director.</p></div></li>
-        <li class="a-job rv"><span class="yr">1992–93</span><div><h3>Marketing and Program Coordinator</h3><p class="org">California State University, Long Beach</p><p class="d">Professional development certificate programs in international business, run from the World Trade Center offices of the College of Continuing and Professional Education.</p></div></li>
-        <li class="a-job rv"><span class="yr">1989–91</span><div><h3>English Teacher and International Coordinator</h3><p class="org">City of Anjo, Japan</p><p class="d">Taught English in the city’s public junior high schools and served as its International Coordinator.</p></div></li>
-    </ol>
-  </section>
+    </section>
+  </div>
 
   <!-- Testimonials: hidden until Doug's references send quotes. Remove the hidden attribute to show.
   -->
   <section class="wrap a-quotes" aria-label="Testimonials" hidden>
-    <figure class="a-quote rv"><p>A short quote from a coworker or board chair Doug worked with goes here.</p><figcaption><span class="ph">Placeholder</span><br><br>Name, title, organization</figcaption></figure>
-    <figure class="a-quote rv"><p>A short quote from a partner, donor or ICC colleague goes here.</p><figcaption><span class="ph">Placeholder</span><br><br>Name, title, organization</figcaption></figure>
+    <figure class="a-quote rv"><p>A short quote from a coworker or board chair Doug worked with goes here.</p><figcaption>Name, title, organization</figcaption></figure>
+    <figure class="a-quote rv"><p>A short quote from a partner, donor or ICC colleague goes here.</p><figcaption>Name, title, organization</figcaption></figure>
   </section>
-
 </main>
 
   <div class="a-footer-shell" id="contact">
     <footer class="a-footer">
       <div class="wrap">
-        <div class="who rv"><img src="assets/headshot-face.jpg" width="192" height="192" alt="" loading="lazy" decoding="async"><div>Douglas Erber<small>Nonprofit executive director · Long Beach</small></div></div>
-        <h2 class="split">Let’s connect.</h2>
-        <p class="lead rv">I’m always glad to hear from boards, colleagues and partners. Email is the best way to reach me.</p>
-        <div class="row">
-          <a class="btn-a" href="mailto:dougerber@hotmail.com?subject=Let%E2%80%99s%20connect"><i aria-hidden="true">→</i>Email Doug</a>
-          <button class="btn-a ghost" type="button" id="copy-email" data-email="dougerber@hotmail.com"><i aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5.5" y="5.5" width="8" height="8" rx="1.6"/><path d="M10.5 3.5V3a1.5 1.5 0 0 0-1.5-1.5H4A1.5 1.5 0 0 0 2.5 3v5A1.5 1.5 0 0 0 4 9.5h.5"/></svg></i><span>Copy email</span></button>
-          <a class="btn-a ghost" href="https://www.linkedin.com/in/douglaserber" target="_blank" rel="noopener"><i aria-hidden="true">↗</i>LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+        <div class="a-cta">
+          <div class="main">
+            <div class="who rv"><img src="assets/headshot-face.jpg" width="192" height="192" alt="" loading="lazy" decoding="async"><div>Douglas Erber<small>Nonprofit executive director · Long Beach</small></div></div>
+            <h2 class="d split">Let’s <em>connect</em>.</h2>
+            <p class="lead rv">Whether you’re filling an executive role, looking for a board member, or need a steady hand on fundraising, membership or governance, a short email is the easiest way to start. Every message comes straight to me.</p>
+            <div class="row">
+              <a class="btn btn-light" href="mailto:dougerber@hotmail.com?subject=Let%E2%80%99s%20connect"><span>Email Doug</span><span class="ico" aria-hidden="true"><svg class="cur"><use href="#i-arrow"/></svg><svg class="nx"><use href="#i-arrow"/></svg></span></a>
+              <button class="btn btn-ghost" type="button" id="copy-email" data-email="dougerber@hotmail.com"><span class="lbl">Copy email</span><span class="ico" aria-hidden="true"><svg class="cur"><use href="#i-copy"/></svg><svg class="ok"><use href="#i-check"/></svg></span></button>
+              <a class="btn btn-ghost" href="https://www.linkedin.com/in/douglaserber" target="_blank" rel="noopener"><span>LinkedIn<span class="sr-only"> (opens in a new tab)</span></span><span class="ico diag" aria-hidden="true"><svg class="cur fill"><use href="#i-linkedin"/></svg><svg class="nx"><use href="#i-arrow-ur"/></svg></span></a>
+            </div>
+          </div>
+          <nav class="a-topics" aria-label="Start an email about a topic">
+            <p>Or start with a topic</p>
+            <a class="topic" href="mailto:dougerber@hotmail.com?subject=An%20executive%20director%20search"><span class="m" aria-hidden="true"><svg class="i"><use href="#i-key"/></svg></span>An executive director search<svg class="i go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="topic" href="mailto:dougerber@hotmail.com?subject=A%20board%20seat"><span class="m" aria-hidden="true"><svg class="i"><use href="#i-people"/></svg></span>A board seat<svg class="i go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="topic" href="mailto:dougerber@hotmail.com?subject=Fundraising%20or%20membership"><span class="m" aria-hidden="true"><svg class="i"><use href="#i-coins"/></svg></span>Fundraising or membership<svg class="i go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="topic" href="mailto:dougerber@hotmail.com?subject=Governance%20and%20compliance"><span class="m" aria-hidden="true"><svg class="i"><use href="#i-doc"/></svg></span>Governance and compliance<svg class="i go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="topic" href="mailto:dougerber@hotmail.com?subject=Hello"><span class="m" aria-hidden="true"><svg class="i"><use href="#i-mail"/></svg></span>Just saying hello<svg class="i go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </nav>
         </div>
         <div class="fine"><span>Douglas Erber · Long Beach, California</span><a href="mailto:dougerber@hotmail.com">dougerber@hotmail.com</a><span>© <span id="yr">2026</span></span></div>
         <p class="sr-only" id="copy-status" aria-live="polite"></p>
@@ -529,15 +736,21 @@ main section[id], #contact { scroll-margin-top: 80px; }
   // Copy email: handy for visitors whose computer has no mail app set up
   var copyBtn = document.getElementById('copy-email');
   if (copyBtn) copyBtn.addEventListener('click', function () {
-    var em = copyBtn.dataset.email, label = copyBtn.querySelector('span'), status = document.getElementById('copy-status');
+    var em = copyBtn.dataset.email, label = copyBtn.querySelector('.lbl'), status = document.getElementById('copy-status');
     function done(ok) {
       label.textContent = ok ? 'Copied' : em;
+      copyBtn.classList.toggle('done', ok);
       status.textContent = ok ? 'Email address copied' : '';
-      setTimeout(function () { label.textContent = 'Copy email'; }, 2400);
+      setTimeout(function () { label.textContent = 'Copy email'; copyBtn.classList.remove('done'); }, 2400);
     }
     if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(em).then(function () { done(true); }, function () { done(false); });
     else done(false);
   });
+
+  // Role details: open for printing, so a printed copy carries the full history
+  var more = document.querySelector('.a-more'), moreWasOpen = false;
+  window.addEventListener('beforeprint', function () { if (more) { moreWasOpen = more.open; more.open = true; } });
+  window.addEventListener('afterprint', function () { if (more) more.open = moreWasOpen; });
 
   // Stats: screen readers get the final number, not the count-up
   document.querySelectorAll('#stats .a-stat').forEach(function (card) {
@@ -604,7 +817,7 @@ main section[id], #contact { scroll-margin-top: 80px; }
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { runStats(); io.disconnect(); } }); }, { threshold: .4 });
     io.observe(document.getElementById('stats'));
     document.querySelectorAll('.rv').forEach(function (el) { el.style.opacity = 1; el.style.transform = 'none'; });
-    document.querySelectorAll('.a-beat, .a-job').forEach(function (el) { el.classList.add('in'); });
+    document.querySelectorAll('.a-beat, .a-tl, .ring').forEach(function (el) { el.classList.add('in'); });
     return;
   }
 
@@ -687,11 +900,28 @@ main section[id], #contact { scroll-margin-top: 80px; }
     gsap.to(el, { opacity: 1, y: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
   });
 
-  // Headings rise in word by word
+  // Headings rise in word by word. Italic accent words keep their <em>.
+  function splitWords(h) {
+    var list = [[]];
+    function brk() { if (list[list.length - 1].length) list.push([]); }
+    (function walk(node, em) {
+      Array.prototype.forEach.call(node.childNodes, function (n) {
+        if (n.nodeType === 3) {
+          n.textContent.split(/(\s+)/).forEach(function (p) {
+            if (!p) return;
+            if (/^\s+$/.test(p)) brk(); else list[list.length - 1].push({ t: p, em: em });
+          });
+        } else if (n.nodeType === 1) {
+          if (n.tagName === 'BR') brk(); else walk(n, em || n.tagName === 'EM');
+        }
+      });
+    })(h, false);
+    return list.filter(function (w) { return w.length; });
+  }
   gsap.utils.toArray('.split').forEach(function (h) {
-    var text = h.textContent.trim();
-    h.innerHTML = '<span class="sr-only">' + esc(text) + '</span><span aria-hidden="true">' + text.split(/\s+/).map(function (w) {
-      return '<span class="wd"><span>' + esc(w) + '</span></span>';
+    var text = h.textContent.replace(/\s+/g, ' ').trim();
+    h.innerHTML = '<span class="sr-only">' + esc(text) + '</span><span aria-hidden="true">' + splitWords(h).map(function (w) {
+      return '<span class="wd"><span>' + w.map(function (p) { return p.em ? '<em>' + esc(p.t) + '</em>' : esc(p.t); }).join('') + '</span></span>';
     }).join(' ') + '</span>';
     gsap.from(h.querySelectorAll('.wd > span'), { yPercent: 108, duration: 1.1, ease: 'expo.out', stagger: .035, scrollTrigger: { trigger: h, start: 'top 86%', once: true } });
   });
@@ -718,10 +948,13 @@ main section[id], #contact { scroll-margin-top: 80px; }
     });
   });
 
-  // Story beats and experience rows: draw the green rule under each one as it arrives
-  gsap.utils.toArray('.a-beat, .a-job').forEach(function (b) {
-    ScrollTrigger.create({ trigger: b, start: 'top 75%', once: true, onEnter: function () { b.classList.add('in'); } });
+  // Story rules, the renewal ring and the career timeline draw in as they arrive
+  gsap.utils.toArray('.a-beat, .ring, .a-tl').forEach(function (b) {
+    ScrollTrigger.create({ trigger: b, start: 'top 78%', once: true, onEnter: function () { b.classList.add('in'); } });
   });
+
+  // Opening the role details changes the page height, so re-measure the scroll triggers
+  if (more) more.addEventListener('toggle', function () { ScrollTrigger.refresh(); });
 
   // Results index and floating nav follow along with the section you're reading
   document.querySelectorAll('.a-index a').forEach(function (a) {
