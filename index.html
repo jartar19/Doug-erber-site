@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Douglas Erber · Nonprofit Executive Director</title>
+<meta name="description" content="Douglas Erber is a nonprofit executive director in Long Beach, California, and Vice-Chair of California's council on early intervention since 2014.">
+<meta property="og:title" content="Douglas Erber · Nonprofit Executive Director">
+<meta property="og:description" content="Fundraising, membership growth, governance and partnerships. ICC Vice-Chair since 2014.">
+<meta property="og:image" content="assets/hero-poster.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap">
+<style>
+:root {
+  --a-bg: #F4F4F6;
+  --a-card: #E6E7EC;
+  --a-ink: #141519;
+  --a-mute: #6E7079;
+  --a-accent: #4A4DF5;
+  --a-night: #07081A;
+  --font-a: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --gut-l: max(clamp(16px, 4vw, 56px), env(safe-area-inset-left, 0px));
+  --gut-r: max(clamp(16px, 4vw, 56px), env(safe-area-inset-right, 0px));
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--a-bg); color: var(--a-ink); font-family: var(--font-a); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.wrap { padding-left: var(--gut-l); padding-right: var(--gut-r); max-width: 1320px; margin: 0 auto; width: 100%; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { text-wrap: balance; font-weight: 500; }
+a { color: inherit; }
+img, video { max-width: 100%; display: block; }
+.ph { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; padding: 3px 8px; border: 1px dashed currentColor; border-radius: 999px; opacity: .75; white-space: nowrap; }
+:focus-visible { outline: 2px solid var(--a-accent); outline-offset: 3px; }
+
+/* Film grain */
+.grain { position: fixed; inset: -50%; width: 200%; height: 200%; pointer-events: none; z-index: 100; opacity: .05;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: grain 1.2s steps(6) infinite; }
+@keyframes grain { 0%{transform:translate(0,0)} 20%{transform:translate(-3%,2%)} 40%{transform:translate(2%,-3%)} 60%{transform:translate(-2%,-1%)} 80%{transform:translate(3%,3%)} 100%{transform:translate(0,0)} }
+
+/* Hero */
+.a-hero-shell { padding: 8px; }
+.a-hero { position: relative; overflow: hidden; border-radius: 10px; background: var(--a-night); color: #fff; height: calc(100svh - 16px); min-height: 520px; display: flex; flex-direction: column; justify-content: flex-end; }
+.a-nav { position: absolute; top: calc(18px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%); z-index: 5; display: flex; align-items: center; gap: 28px; padding: 8px 8px 8px 16px; border-radius: 999px; background: rgba(10,11,30,.55); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); font-size: 14px; white-space: nowrap; }
+.a-nav .mark { display: flex; align-items: center; gap: 8px; font-weight: 500; }
+.a-nav .mark i { width: 22px; height: 12px; border: 2px solid #8C8FFF; border-radius: 8px; display: inline-block; }
+.a-nav a.menu { background: rgba(255,255,255,.14); padding: 6px 14px; border-radius: 999px; font-size: 13px; text-decoration: none; }
+.a-stage-wrap { position: absolute; inset: 0; overflow: hidden; }
+.a-stage { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 20%; }
+.a-stage-img { transform-origin: 50% 30%; will-change: transform; }
+.a-video { opacity: 0; transition: opacity .6s ease; }
+.a-video.ready { opacity: 1; }
+.a-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,8,26,.55) 0%, rgba(7,8,26,.1) 30%, rgba(7,8,26,.7) 75%, #07081A 100%); }
+.a-glow { position: absolute; inset: -20%; filter: blur(60px); opacity: .4; mix-blend-mode: screen; }
+.a-glow b { position: absolute; border-radius: 50%; display: block; }
+.a-glow .g1 { width: 70%; height: 80%; left: -5%; top: 0%; background: radial-gradient(closest-side, #2B22C9, transparent); }
+.a-glow .g2 { width: 55%; height: 18%; left: 5%; top: 55%; background: radial-gradient(closest-side, #6E6BFF, transparent); transform: rotate(-12deg); animation: drift 14s ease-in-out infinite alternate; }
+.a-glow .g3 { width: 40%; height: 40%; right: -8%; top: -12%; background: radial-gradient(closest-side, #3A3FD8, transparent); opacity: .7; animation: drift 18s ease-in-out infinite alternate-reverse; }
+@keyframes drift { from { translate: 0 0; } to { translate: 4% -3%; } }
+.a-hero-text { position: relative; z-index: 3; padding: 0 clamp(20px, 4vw, 48px) 28px; display: grid; gap: 14px; max-width: 900px; }
+.a-hero-text .eyebrow { font-size: 13px; letter-spacing: .04em; color: rgba(255,255,255,.75); }
+.a-hero-text h1 { font-size: clamp(48px, 9vw, 132px); line-height: .92; letter-spacing: -.045em; font-weight: 500; }
+.a-hero-text h1 .line { display: block; overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em; }
+.a-hero-text h1 .line > span { display: block; }
+.a-scrollhint { position: absolute; right: clamp(20px, 4vw, 48px); bottom: 90px; z-index: 3; font-size: 12px; color: rgba(255,255,255,.6); letter-spacing: .08em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+.a-scrollhint::after { content: ""; width: 1px; height: 36px; background: linear-gradient(rgba(255,255,255,.8), transparent); animation: hint 2s ease-in-out infinite; transform-origin: top; }
+@keyframes hint { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
+.a-marquee { position: relative; z-index: 3; border-top: 1px solid rgba(255,255,255,.1); overflow: hidden; padding: 18px 0; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.a-marquee ul { display: flex; gap: 56px; list-style: none; margin: 0; padding: 0; width: max-content; animation: slide 40s linear infinite; }
+.a-marquee li { font-size: 15px; font-weight: 600; letter-spacing: .02em; color: rgba(255,255,255,.55); white-space: nowrap; }
+@keyframes slide { to { transform: translateX(-50%); } }
+@media (max-width: 560px) { .a-nav { gap: 14px; } .a-scrollhint { display: none; } }
+
+/* Statement */
+.a-statement { padding-block: clamp(72px, 11vw, 150px); }
+.a-statement .inner { max-width: 880px; margin-left: auto; margin-right: clamp(0px, 6vw, 120px); display: grid; gap: 20px; }
+.a-statement p.big { font-size: clamp(28px, 4.2vw, 56px); line-height: 1.05; letter-spacing: -.03em; font-weight: 500; text-indent: 2.2em; }
+.a-statement p.big .w { color: #B4B6BF; transition: color .3s; }
+.a-statement p.big .w.on { color: var(--a-ink); }
+.a-statement p.sub { color: var(--a-mute); font-size: 16px; }
+
+/* Stats */
+.a-stats { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; }
+.a-stat { background: #fff; border-radius: 8px; padding: 22px 22px 20px; display: grid; gap: 34px; align-content: space-between; min-width: 0; position: relative; overflow: hidden; }
+.a-stat::after { content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; background: var(--a-accent); transform: scaleX(var(--bar, 0)); transform-origin: left; transition: transform 1.4s cubic-bezier(.2,.7,.2,1); }
+.a-stat .n { font-size: clamp(36px, 4.4vw, 64px); letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.a-stat .l { color: var(--a-mute); font-size: 14px; line-height: 1.4; }
+@media (max-width: 860px) { .a-stats { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+
+.tag { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: var(--a-mute); }
+.tag::before { content: ""; width: 6px; height: 6px; border-radius: 2px; background: var(--a-accent); }
+
+/* Services */
+.a-services { padding-block: clamp(80px, 10vw, 140px); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 7vw, 120px); }
+.a-services .left { position: sticky; top: 32px; align-self: start; display: grid; gap: 18px; max-width: 440px; }
+.a-services h2, .a-icc h2, .a-cases .left h2, .a-story h2 { font-size: clamp(30px, 3.6vw, 48px); line-height: 1.04; letter-spacing: -.03em; }
+.a-services .left p { color: var(--a-mute); line-height: 1.5; font-size: 16px; }
+.btn-a { display: inline-flex; align-items: center; gap: 10px; background: var(--a-ink); color: #fff; text-decoration: none; padding: 4px 18px 4px 4px; border-radius: 999px; font-size: 14px; width: max-content; transition: transform .25s ease; }
+.btn-a:hover { transform: translateY(-2px); }
+.btn-a i { width: 32px; height: 32px; border-radius: 50%; background: var(--a-accent); display: grid; place-items: center; font-style: normal; color: #fff; transition: transform .25s ease; }
+.btn-a:hover i { transform: rotate(-45deg); }
+.a-cards { display: grid; gap: 10px; }
+.a-card { background: var(--a-card); border-radius: 8px; padding: 22px 24px 24px; display: grid; gap: 56px; }
+.a-card .num { color: var(--a-accent); font-size: 12px; font-variant-numeric: tabular-nums; }
+.a-card h3 { font-size: clamp(22px, 2.2vw, 28px); letter-spacing: -.02em; }
+.a-card p { color: #4C4E57; line-height: 1.5; font-size: 15px; max-width: 54ch; }
+@media (max-width: 860px) { .a-services { grid-template-columns: 1fr; } .a-services .left { position: static; } .a-card { gap: 28px; } }
+
+/* ICC */
+.a-icc-band { background: #E1E2E8; }
+.a-icc { padding-block: clamp(80px, 10vw, 130px); display: grid; grid-template-columns: minmax(0,5fr) minmax(0,6fr); gap: clamp(32px, 7vw, 120px); align-items: start; }
+.a-icc .seal { background: var(--a-night); color: #fff; border-radius: 10px; padding: clamp(24px, 3vw, 36px); position: relative; overflow: hidden; display: grid; gap: 80px; min-height: 360px; align-content: space-between; }
+.a-icc .seal::before { content: ""; position: absolute; width: 140%; height: 60%; left: -20%; bottom: -30%; background: radial-gradient(closest-side, #4B49F0, transparent); filter: blur(40px); }
+.a-icc .seal > * { position: relative; }
+.a-icc .seal .yr { font-size: clamp(64px, 9vw, 120px); letter-spacing: -.05em; line-height: .9; }
+.a-icc .seal small { color: rgba(255,255,255,.65); font-size: 13px; display: block; margin-top: 10px; }
+.a-icc .txt { display: grid; gap: 20px; }
+.a-icc .txt > p { color: #4C4E57; font-size: 16px; line-height: 1.55; max-width: 58ch; }
+.a-roles { display: grid; gap: 1px; background: #C9CAD2; border-radius: 8px; overflow: hidden; margin-top: 8px; }
+.a-roles div { background: #EEEFF3; padding: 14px 16px; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 12px; font-size: 15px; }
+.a-roles span { color: var(--a-mute); font-variant-numeric: tabular-nums; white-space: nowrap; }
+@media (max-width: 860px) { .a-icc { grid-template-columns: 1fr; } .a-icc .seal { min-height: 0; gap: 40px; } }
+
+/* Story */
+.a-story { padding-block: clamp(80px, 10vw, 140px); display: grid; grid-template-columns: minmax(0,5fr) minmax(0,6fr); gap: clamp(32px, 7vw, 120px); }
+.a-story .left { display: grid; gap: 18px; align-content: start; }
+.a-story .left p { color: var(--a-mute); font-size: 16px; line-height: 1.5; }
+.a-beats { display: grid; gap: 0; border-top: 1px solid #D3D4DB; }
+.a-beat { display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 20px; padding: 22px 0; border-bottom: 1px solid #D3D4DB; }
+.a-beat span { color: var(--a-accent); font-size: 13px; font-variant-numeric: tabular-nums; padding-top: 4px; }
+.a-beat p { font-size: clamp(18px, 1.8vw, 22px); line-height: 1.35; letter-spacing: -.01em; }
+@media (max-width: 860px) { .a-story { grid-template-columns: 1fr; } .a-beat { grid-template-columns: 1fr; gap: 6px; } }
+
+/* Cases */
+.a-cases { padding-block: clamp(80px, 10vw, 140px); display: grid; grid-template-columns: minmax(0,5fr) minmax(0,6fr); gap: clamp(32px, 7vw, 120px); }
+.a-cases .left { position: sticky; top: 32px; align-self: start; display: grid; gap: 18px; }
+.a-cases .left > p { color: var(--a-mute); font-size: 16px; line-height: 1.5; }
+.a-index { display: grid; gap: 6px; margin-top: 10px; }
+.a-index a { display: grid; grid-template-columns: 56px minmax(0,1fr); gap: 8px; text-decoration: none; }
+.a-index .thumb { border-radius: 6px; background: linear-gradient(135deg, #2B22C9, #07081A); color: #fff; font-size: 12px; display: grid; place-items: center; font-weight: 600; }
+.a-index .meta { background: var(--a-card); border-radius: 6px; padding: 9px 12px; }
+.a-index .meta small { color: var(--a-accent); font-size: 11px; display: block; }
+.a-index .meta b { font-weight: 500; font-size: 14px; }
+.a-case { background: var(--a-card); border-radius: 10px; overflow: hidden; scroll-margin-top: 24px; }
+.a-case .vis { aspect-ratio: 16/9; background: var(--a-night); position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: clamp(20px, 3vw, 32px); color: #fff; }
+.a-case .vis::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 70% at var(--x, 30%) var(--y, 80%), #4B49F0, transparent 70%); opacity: .9; }
+.a-case .vis span { position: relative; font-size: clamp(56px, 9vw, 120px); letter-spacing: -.05em; line-height: .9; font-variant-numeric: tabular-nums; }
+.a-case .body { padding: 18px 20px 22px; display: grid; gap: 6px; }
+.a-case .body small { color: var(--a-accent); font-size: 12px; }
+.a-case .body h3 { font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -.02em; }
+.a-case .body p { color: #4C4E57; font-size: 15px; line-height: 1.5; max-width: 58ch; }
+.a-case-list { display: grid; gap: 14px; }
+@media (max-width: 860px) { .a-cases { grid-template-columns: 1fr; } .a-cases .left { position: static; } }
+
+/* Quotes */
+.a-quotes { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; padding-bottom: clamp(80px, 10vw, 140px); }
+.a-quote { background: #fff; border-radius: 10px; padding: clamp(22px, 3vw, 36px); display: grid; gap: 40px; color: var(--a-mute); margin: 0; }
+.a-quote p { font-size: clamp(20px, 2vw, 26px); line-height: 1.25; letter-spacing: -.02em; color: #A4A6AF; }
+@media (max-width: 760px) { .a-quotes { grid-template-columns: 1fr; } }
+
+/* Footer CTA */
+.a-footer-shell { padding: 0 8px 8px; }
+.a-footer { background: var(--a-night); color: #fff; border-radius: 10px; position: relative; overflow: hidden; padding-block: clamp(64px, 9vw, 120px) 32px; }
+.a-footer::before { content: ""; position: absolute; width: 90%; height: 90%; right: -25%; top: -30%; background: radial-gradient(closest-side, #3A36E0, transparent); filter: blur(50px); }
+.a-footer .wrap { position: relative; display: grid; gap: 48px; }
+.a-footer h2 { font-size: clamp(44px, 8vw, 116px); line-height: .94; letter-spacing: -.045em; max-width: 12ch; }
+.a-footer .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.a-footer .btn-a { background: #fff; color: var(--a-ink); font-size: 15px; }
+.a-footer .btn-a.ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.3); padding: 4px 18px 4px 4px; }
+.a-footer .btn-a.ghost i { background: rgba(255,255,255,.12); }
+.a-footer .fine { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(255,255,255,.12); padding-top: 20px; color: rgba(255,255,255,.55); font-size: 13px; }
+
+/* Reveal (only when JS + motion are on) */
+.js .rv { opacity: 0; transform: translateY(24px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .a-glow b, .a-marquee ul, .grain, .a-scrollhint::after { animation: none !important; }
+  .js .rv { opacity: 1; transform: none; }
+}
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<main>
+  <div class="a-hero-shell" id="top">
+    <section class="a-hero" id="hero" aria-label="Introduction">
+      <nav class="a-nav" aria-label="Site">
+        <span class="mark"><i></i>Douglas Erber</span>
+        <a class="menu" href="#contact">Contact</a>
+      </nav>
+      <div class="a-stage-wrap" aria-hidden="true">
+        <img class="a-stage a-stage-img" id="hero-img" src="assets/hero-poster.jpg" alt="">
+        <video class="a-stage a-video" id="hero-video" muted playsinline preload="auto" poster="assets/hero-poster.jpg">
+          <source src="assets/hero-orbit.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="a-shade" aria-hidden="true"></div>
+      <div class="a-glow" aria-hidden="true"><b class="g1"></b><b class="g2"></b><b class="g3"></b></div>
+      <div class="a-hero-text">
+        <span class="eyebrow">Nonprofit executive director · ICC Vice-Chair since 2014 · Long Beach, California</span>
+        <h1><span class="line"><span>Douglas</span></span><span class="line"><span>Erber</span></span></h1>
+      </div>
+      <div class="a-scrollhint" aria-hidden="true">Scroll</div>
+      <div class="a-marquee" aria-label="Organizations Doug has led or served">
+        <ul>
+          <li>Japan America Society of Southern California</li><li>Infant Development Association of California</li><li>Sister Cities of Long Beach</li><li>California State ICC on Early Intervention</li><li>Autism Partnership Foundation</li><li>Harbor Regional Center</li><li>CA Alliance of Self-Insured Groups</li><li>LA County Economic Development Corp.</li>
+          <li aria-hidden="true">Japan America Society of Southern California</li><li aria-hidden="true">Infant Development Association of California</li><li aria-hidden="true">Sister Cities of Long Beach</li><li aria-hidden="true">California State ICC on Early Intervention</li><li aria-hidden="true">Autism Partnership Foundation</li><li aria-hidden="true">Harbor Regional Center</li><li aria-hidden="true">CA Alliance of Self-Insured Groups</li><li aria-hidden="true">LA County Economic Development Corp.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <section class="wrap a-statement" aria-label="Mission">
+    <div class="inner">
+      <p class="big" id="mission">For more than 30 years I've run the parts of a nonprofit that keep it standing: the donors, the members, the board and the paperwork.</p>
+      <p class="sub rv">Executive director and senior nonprofit leader, available to boards in Los Angeles and Long Beach.</p>
+    </div>
+  </section>
+
+  <section class="wrap" aria-label="Results at a glance">
+    <div class="a-stats" id="stats">
+      <div class="a-stat"><span class="n" data-to="3" data-pre="$" data-suf="M+">$3M+</span><span class="l">Raised through annual galas and golf tournaments at JASSC</span></div>
+      <div class="a-stat"><span class="n" data-to="1.5" data-dec="1" data-pre="$" data-suf="M">$1.5M</span><span class="l">Relief and recovery fund built after the 2011 Japan earthquake and tsunami</span></div>
+      <div class="a-stat"><span class="n" data-to="90" data-suf="%">90%</span><span class="l">Member renewal rate, against a typical goal of 80%</span></div>
+      <div class="a-stat"><span class="n" data-to="14" data-suf=" yrs">14 yrs</span><span class="l">Running a 100% board giving campaign every year</span></div>
+    </div>
+  </section>
+
+  <section class="wrap a-services" id="work">
+    <div class="left">
+      <span class="tag">What boards bring me in for</span>
+      <h2>Money in, members up, house in order.</h2>
+      <p>I've been the first-ever executive director twice. I know what a board needs from its ED in year one, and what it takes to leave an organization stronger than I found it.</p>
+      <a class="btn-a" href="mailto:dougerber@hotmail.com?subject=Executive%20director%20conversation"><i>→</i>Email Doug</a>
+    </div>
+    <div class="a-cards">
+      <article class="a-card rv"><span class="num">01</span><div><h3>Fundraising</h3><p>Major gifts, grants and events. A $250,000 gift from one family for a centennial year. $130,000 in unrestricted grants for IDA in two years, more than its annual net revenue.</p></div></article>
+      <article class="a-card rv"><span class="num">02</span><div><h3>Membership growth</h3><p>A three-year campaign at JASSC, funded by a $150,000 capacity grant, grew corporate and individual members by 25% and held renewals at 90%.</p></div></article>
+      <article class="a-card rv"><span class="num">03</span><div><h3>Governance and compliance</h3><p>Organizations that have drifted out of compliance get back in order: bylaws rewritten, tax requirements met, and marketing materials brought up to standard. I rewrote IDA's bylaws.</p></div></article>
+      <article class="a-card rv"><span class="num">04</span><div><h3>Partnerships and government</h3><p>Decades of work with state agencies, regional centers, foundations and corporate partners. Interviewed live on CNN, MSNBC and KABC.</p></div></article>
+    </div>
+  </section>
+
+  <div class="a-icc-band">
+    <section class="wrap a-icc" aria-label="ICC Vice-Chair">
+      <div class="seal rv">
+        <span class="tag" style="color:rgba(255,255,255,.7)">Governor appointed</span>
+        <div>
+          <div class="yr">2014–<br>today</div>
+          <small>Vice-Chair, California State Interagency Coordinating Council on Early Intervention</small>
+        </div>
+      </div>
+      <div class="txt">
+        <span class="tag">Early intervention</span>
+        <h2>Vice-Chair of California's council on early intervention since 2014.</h2>
+        <p>Appointed by Governor Edmund G. Brown Jr. The ICC advises the California Department of Developmental Services on services for infants and toddlers, birth to three, who have or are at risk for a disability, and their families.</p>
+        <div class="a-roles rv">
+          <div>Board President, Autism Partnership Foundation <span>2012–now</span></div>
+          <div>First-ever Executive Director, Infant Development Association of California <span>2021–24</span></div>
+          <div>Trustee, Secretary and Treasurer, Harbor Regional Center <span>2010–17</span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="wrap a-story" aria-label="Story">
+    <div class="left">
+      <span class="tag">How I got here</span>
+      <h2>Three decades of keeping good organizations standing.</h2>
+      <p><span class="ph">Draft</span>&nbsp; Doug to edit in his own words.</p>
+    </div>
+    <div class="a-beats">
+      <div class="a-beat rv"><span>JASSC</span><p>At the Japan America Society of Southern California I ran the galas, the members and the centennial, and built a $1.5 million relief fund when Japan needed it in 2011.</p></div>
+      <div class="a-beat rv"><span>Board work</span><p>I joined boards for the work, not the title: trustee, secretary and treasurer at Harbor Regional Center, and board president at Autism Partnership Foundation since 2012.</p></div>
+      <div class="a-beat rv"><span>Statewide</span><p>In 2014 the governor appointed me to California's council on early intervention. I've served as its Vice-Chair ever since.</p></div>
+      <div class="a-beat rv"><span>First ED</span><p>As the Infant Development Association's first-ever executive director, I rewrote the bylaws and raised more in unrestricted grants than the organization nets in a year.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap a-cases" id="results">
+    <div class="left">
+      <span class="tag">Selected results</span>
+      <h2>A few results worth a closer look.</h2>
+      <p>Each one started with a real problem: a funding gap, a disaster, a shrinking member base.</p>
+      <nav class="a-index" aria-label="Results">
+        <a href="#case-relief"><span class="thumb">$1.5M</span><span class="meta"><small>Disaster relief</small><b>Japan relief and recovery fund</b></span></a>
+        <a href="#case-gift"><span class="thumb">$250K</span><span class="meta"><small>Major gifts</small><b>JASSC Centennial gift</b></span></a>
+        <a href="#case-ida"><span class="thumb">$130K</span><span class="meta"><small>Unrestricted grants</small><b>IDA of California</b></span></a>
+      </nav>
+    </div>
+    <div class="a-case-list">
+      <article class="a-case rv" id="case-relief">
+        <div class="vis" style="--x:25%;--y:85%"><span>$1.5M</span></div>
+        <div class="body"><small>Disaster relief · JASSC</small><h3>Japan relief and recovery fund</h3><p>Created and managed a $1.5 million fund for immediate relief and long-term recovery after the 2011 earthquake, tsunami and nuclear disaster in Japan.</p></div>
+      </article>
+      <article class="a-case rv" id="case-gift">
+        <div class="vis" style="--x:75%;--y:20%"><span>$250K</span></div>
+        <div class="body"><small>Major gifts · JASSC</small><h3>A centennial year, funded</h3><p>Cultivated and secured a $250,000 gift from a high-wealth family to prepare for and run the society's year-long Centennial Celebration.</p></div>
+      </article>
+      <article class="a-case rv" id="case-ida">
+        <div class="vis" style="--x:50%;--y:100%"><span>$130K</span></div>
+        <div class="body"><small>Unrestricted grants · IDA</small><h3>More than a year's net revenue</h3><p>As IDA's first-ever executive director, secured $130,000 in unrestricted grants over two years, an amount larger than the organization's annual net revenue.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap a-quotes" aria-label="Testimonials">
+    <figure class="a-quote rv"><p>A short quote from a coworker or board chair Doug worked with goes here.</p><figcaption><span class="ph">Placeholder</span><br><br>Name, title, organization</figcaption></figure>
+    <figure class="a-quote rv"><p>A short quote from a partner, donor or ICC colleague goes here.</p><figcaption><span class="ph">Placeholder</span><br><br>Name, title, organization</figcaption></figure>
+  </section>
+
+  <div class="a-footer-shell" id="contact">
+    <footer class="a-footer">
+      <div class="wrap">
+        <h2>Hiring your next executive director?</h2>
+        <div class="row">
+          <a class="btn-a" href="mailto:dougerber@hotmail.com?subject=Executive%20director%20conversation"><i>→</i>Email Doug</a>
+          <a class="btn-a ghost" href="https://www.linkedin.com/in/douglaserber" target="_blank" rel="noopener"><i>↗</i>LinkedIn</a>
+        </div>
+        <div class="fine"><span>Douglas Erber · Long Beach, California</span><span>dougerber@hotmail.com</span><span>© <span id="yr">2026</span></span></div>
+      </div>
+    </footer>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function () {
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasGsap = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
+
+  // Mission line: split into words so they light up as you scroll
+  var mission = document.getElementById('mission');
+  mission.innerHTML = mission.textContent.trim().split(/\s+/).map(function (w) { return '<span class="w">' + w + '</span>'; }).join(' ');
+  var words = mission.querySelectorAll('.w');
+
+  // Stats count-up
+  function runStats() {
+    document.querySelectorAll('#stats .a-stat').forEach(function (card, i) {
+      var el = card.querySelector('.n');
+      var to = parseFloat(el.dataset.to), dec = parseInt(el.dataset.dec || '0', 10);
+      var pre = el.dataset.pre || '', suf = el.dataset.suf || '';
+      setTimeout(function () { card.style.setProperty('--bar', '1'); }, i * 120);
+      if (reduce) return;
+      var start = null, dur = 1400, delay = i * 120;
+      function tick(t) {
+        if (start === null) start = t + delay;
+        var p = Math.min(1, Math.max(0, (t - start) / dur));
+        var e = 1 - Math.pow(1 - p, 3);
+        el.textContent = pre + (to * e).toFixed(dec) + suf;
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      el.textContent = pre + (0).toFixed(dec) + suf;
+      requestAnimationFrame(tick);
+    });
+  }
+
+  // Hero video: show it once it can play; fall back to the still photo
+  var video = document.getElementById('hero-video');
+  var img = document.getElementById('hero-img');
+  var videoOk = false;
+  function videoReady() {
+    if (videoOk) return;
+    videoOk = true; video.classList.add('ready'); video.pause();
+  }
+  video.addEventListener('loadeddata', videoReady);
+  if (video.readyState >= 2) videoReady();
+  video.load();
+
+  if (reduce || !hasGsap) {
+    words.forEach(function (w) { w.classList.add('on'); });
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { runStats(); io.disconnect(); } }); }, { threshold: .4 });
+    io.observe(document.getElementById('stats'));
+    document.querySelectorAll('.rv').forEach(function (el) { el.style.opacity = 1; el.style.transform = 'none'; });
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Smooth scroll
+  if (typeof window.Lenis !== 'undefined') {
+    var lenis = new Lenis({ duration: 1.15, smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (ev) {
+        var id = a.getAttribute('href'); var target = id.length > 1 && document.querySelector(id);
+        if (target) { ev.preventDefault(); lenis.scrollTo(target, { offset: -16 }); }
+      });
+    });
+  }
+
+  // Hero name rises in
+  gsap.from('.a-hero-text h1 .line > span', { yPercent: 110, duration: 1.2, ease: 'expo.out', stagger: .08, delay: .15 });
+  gsap.from('.a-hero-text .eyebrow, .a-nav', { opacity: 0, y: 12, duration: 1, ease: 'power3.out', delay: .4 });
+
+  // Pin the hero and scrub the orbit with scroll
+  var heroShell = document.querySelector('.a-hero-shell');
+  var tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: heroShell, start: 'top top', end: '+=100%', pin: true, scrub: true,
+      onUpdate: function (self) {
+        if (videoOk && video.duration) {
+          var t = self.progress * (video.duration - 0.05);
+          if (Math.abs(video.currentTime - t) > 0.01) video.currentTime = t;
+        }
+      }
+    }
+  });
+  tl.fromTo(img, { scale: 1.04, xPercent: 0 }, { scale: 1.16, xPercent: -3, ease: 'none' }, 0)
+    .to('.a-hero-text', { yPercent: -30, opacity: .15, ease: 'none' }, 0)
+    .to('.a-scrollhint', { opacity: 0, ease: 'none', duration: .2 }, 0);
+
+  // Mission words light up
+  gsap.to(words, {
+    className: 'w on', stagger: .5, ease: 'none',
+    scrollTrigger: { trigger: mission, start: 'top 80%', end: 'bottom 45%', scrub: true }
+  });
+
+  // Stats
+  ScrollTrigger.create({ trigger: '#stats', start: 'top 85%', once: true, onEnter: runStats });
+
+  // Reveals
+  gsap.utils.toArray('.rv').forEach(function (el) {
+    gsap.to(el, { opacity: 1, y: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+  });
+
+  // Big footer line
+  gsap.from('.a-footer h2', { yPercent: 30, opacity: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: '.a-footer', start: 'top 75%', once: true } });
+
+  window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+})();
+</script>
+</body>
+</html>
