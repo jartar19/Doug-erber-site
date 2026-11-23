@@ -61,9 +61,10 @@ img, video { max-width: 100%; display: block; }
 .a-glow .g2 { width: 55%; height: 18%; left: 5%; top: 55%; background: radial-gradient(closest-side, #6E6BFF, transparent); transform: rotate(-12deg); animation: drift 14s ease-in-out infinite alternate; }
 .a-glow .g3 { width: 40%; height: 40%; right: -8%; top: -12%; background: radial-gradient(closest-side, #3A3FD8, transparent); opacity: .7; animation: drift 18s ease-in-out infinite alternate-reverse; }
 @keyframes drift { from { translate: 0 0; } to { translate: 4% -3%; } }
+.a-scrim { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: radial-gradient(90% 72% at 0% 100%, rgba(7,8,26,.86) 0%, rgba(7,8,26,.62) 42%, rgba(7,8,26,0) 80%); }
 .a-hero-text { position: relative; z-index: 3; padding: 0 clamp(20px, 4vw, 48px) 28px; display: grid; gap: 14px; max-width: 900px; }
 .a-hero-text .eyebrow { font-size: 13px; letter-spacing: .04em; color: rgba(255,255,255,.75); }
-.a-hero-text h1 { font-size: clamp(48px, 9vw, 132px); line-height: .92; letter-spacing: -.045em; font-weight: 500; }
+.a-hero-text h1 { font-size: clamp(48px, 9vw, 132px); line-height: .92; letter-spacing: -.045em; font-weight: 500; text-shadow: 0 2px 28px rgba(7,8,26,.35); }
 .a-hero-text h1 .line { display: block; overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em; }
 .a-hero-text h1 .line > span { display: block; }
 .a-scrollhint { position: absolute; right: clamp(20px, 4vw, 48px); bottom: 90px; z-index: 3; font-size: 12px; color: rgba(255,255,255,.6); letter-spacing: .08em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
@@ -202,6 +203,7 @@ img, video { max-width: 100%; display: block; }
       </div>
       <div class="a-shade" aria-hidden="true"></div>
       <div class="a-glow" aria-hidden="true"><b class="g1"></b><b class="g2"></b><b class="g3"></b></div>
+      <div class="a-scrim" aria-hidden="true"></div>
       <div class="a-hero-text">
         <span class="eyebrow">Nonprofit executive director · ICC Vice-Chair since 2014 · Long Beach, California</span>
         <h1><span class="line"><span>Douglas</span></span><span class="line"><span>Erber</span></span></h1>
@@ -417,8 +419,11 @@ img, video { max-width: 100%; display: block; }
       }
     }
   });
-  tl.fromTo(img, { scale: 1.04, xPercent: 0 }, { scale: 1.16, xPercent: -3, ease: 'none' }, 0)
-    .to('.a-hero-text', { yPercent: -30, opacity: .15, ease: 'none' }, 0)
+  // As the camera flies in, the name gets clearer: a dark scrim builds behind it and the text comes up to full strength
+  tl.fromTo(img, { scale: 1.04, xPercent: 0 }, { scale: 1.16, xPercent: -3, ease: 'none', duration: 1 }, 0)
+    .fromTo('.a-scrim', { opacity: 0 }, { opacity: 1, ease: 'none', duration: .8 }, 0)
+    .fromTo('.a-hero-text h1', { opacity: .6 }, { opacity: 1, ease: 'none', duration: .8 }, 0)
+    .fromTo('.a-hero-text .eyebrow', { color: 'rgba(255,255,255,.75)' }, { color: 'rgba(255,255,255,1)', ease: 'none', duration: .8 }, 0)
     .to('.a-scrollhint', { opacity: 0, ease: 'none', duration: .2 }, 0);
 
   // Mission words light up

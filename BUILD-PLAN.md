@@ -71,7 +71,7 @@ The hero is a real moment: Doug at the Japan America Society podium on the field
 
 ### 6. Three cinematic scenes (three separate shots)
 
-1. **Hero fly-in, "The Field" (done, live).** Opens on all of Dodger Stadium at golden hour with downtown LA on the horizon and a seated audience on the field. As the visitor scrolls, the camera descends and orbits in until it lands on Doug at the Japan America Society podium, matching the real photo. Generated as a pull-back from the photo, then reversed. Scrubbed by scroll in the hero.
+1. **Hero fly-in, "The Field" (done, live).** Opens on all of Dodger Stadium at golden hour with downtown LA on the horizon and a seated audience on the field. As the visitor scrolls, the camera descends and orbits in until it lands on Doug at the Japan America Society podium, matching the real photo. Generated as a pull-back from the photo, then reversed. Scrubbed by scroll in the hero. The name gets clearer as the camera flies in: it starts at 60% strength, and a dark scrim builds in the lower-left corner behind it, so by the time the camera reaches Doug the name is solid white and fully readable.
 2. **"The Centennial" (proposed).** From `gala-speech.jpg`: Doug at the "Centennial of Promise, 100 Years" podium. A slow push-in from the back of the ballroom to a medium close-up as stage light warms. For the Story section.
 3. **"The Portrait" (proposed).** From `headshot.jpg`: a subtle parallax portrait, slight head turn and a soft smile, studio backdrop. For the final CTA, so the last thing a board sees is Doug looking at them.
 
